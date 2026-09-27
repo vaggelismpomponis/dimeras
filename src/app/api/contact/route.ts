@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+
 const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "dimerasnikos@hotmail.com";
 
 // Simple in-memory rate limiter
@@ -147,6 +147,7 @@ export async function POST(request: NextRequest) {
     `;
 
     // Send email via Resend
+    const resend = new Resend(process.env.RESEND_API_KEY || "dummy_key");
     const { error } = await resend.emails.send({
       from: "D N GROUP <noreply@dngroup.gr>",
       to: [CONTACT_EMAIL],
