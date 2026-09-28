@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
 
-const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "dimerasnikos@hotmail.com";
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "vaggelisbobonhs@gmail.com"; // TODO: Change fallback to dimerasnikos@hotmail.com once domain is verified
 
 // Simple in-memory rate limiter
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
