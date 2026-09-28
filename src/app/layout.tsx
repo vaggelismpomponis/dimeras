@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import MobileCTA from "@/components/MobileCTA";
 
 const inter = Inter({
   subsets: ["latin", "greek"],
@@ -20,9 +23,9 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.dngroup.gr";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "D N GROUP | ΔΗΜΕΡΑΣ Ε.Ε. — Κατασκευαστική Εταιρεία Λάρισα",
+  title: "DN GROUP | ΔΗΜΕΡΑΣ Ε.Ε. — Κατασκευαστική Εταιρεία Λάρισα",
   description:
-    "Η ΔΗΜΕΡΑΣ Ε.Ε. — D N GROUP αναλαμβάνει νέες κατασκευές, ανακαινίσεις, μονώσεις, επισκευές και τεχνικά έργα στη Λάρισα. Εμπειρία από το 2006.",
+    "Η ΔΗΜΕΡΑΣ Ε.Ε. — DN GROUP αναλαμβάνει νέες κατασκευές, ανακαινίσεις, μονώσεις, επισκευές και τεχνικά έργα στη Λάρισα. Εμπειρία από το 2006.",
   keywords: [
     "κατασκευαστική εταιρεία Λάρισα",
     "ανακαίνιση σπιτιού Λάρισα",
@@ -32,16 +35,16 @@ export const metadata: Metadata = {
     "κατασκευές Θεσσαλία",
     "εργολάβος Λάρισα",
     "επισκευές κτιρίων Λάρισα",
-    "D N GROUP",
+    "DN GROUP",
     "ΔΗΜΕΡΑΣ",
   ],
-  authors: [{ name: "D N GROUP — ΔΗΜΕΡΑΣ Ε.Ε." }],
+  authors: [{ name: "DN GROUP — ΔΗΜΕΡΑΣ Ε.Ε." }],
   openGraph: {
-    title: "D N GROUP | Κατασκευαστική Εταιρεία Λάρισα",
+    title: "DN GROUP | Κατασκευαστική Εταιρεία Λάρισα",
     description:
       "Νέες κατασκευές, ανακαινίσεις, μονώσεις — Εμπειρία από το 2006",
     url: SITE_URL,
-    siteName: "D N GROUP",
+    siteName: "DN GROUP",
     locale: "el_GR",
     type: "website",
     images: [
@@ -49,13 +52,13 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "D N GROUP — Κατασκευαστική Εταιρεία Λάρισα",
+        alt: "DN GROUP — Κατασκευαστική Εταιρεία Λάρισα",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "D N GROUP | Κατασκευαστική Εταιρεία Λάρισα",
+    title: "DN GROUP | Κατασκευαστική Εταιρεία Λάρισα",
     description:
       "Νέες κατασκευές, ανακαινίσεις, μονώσεις — Εμπειρία από το 2006",
     images: ["/og-image.jpg"],
@@ -88,7 +91,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   additionalType: "https://schema.org/GeneralContractor",
-  name: "D N GROUP — ΔΗΜΕΡΑΣ Ε.Ε.",
+  name: "DN GROUP — ΔΗΜΕΡΑΣ Ε.Ε.",
   legalName: "ΔΗΜΕΡΑΣ Ε.Ε.",
   foundingDate: "2006",
   description:
@@ -142,7 +145,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+        <MobileCTA />
+      </body>
     </html>
   );
 }

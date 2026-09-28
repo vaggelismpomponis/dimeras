@@ -61,7 +61,7 @@ const services = [
   },
 ];
 
-export default function Services() {
+export default function Services({ standalone = false }: { standalone?: boolean }) {
   const sectionRef = useRef<HTMLElement>(null);
 
   const [isRevealed, setIsRevealed] = useState(false);
@@ -86,15 +86,17 @@ export default function Services() {
   }, []);
 
   return (
-    <section className="services" id="services" ref={sectionRef}>
-      <div className={`services-header reveal${isRevealed ? " visible" : ""}`}>
-        <div className="section-tag light"><span className="tag-num">02</span> ΥΠΗΡΕΣΙΕΣ</div>
-        <h2>
-          Ολοκληρωμένες τεχνικές
-          <br />
-          λύσεις, σε κάθε κλίμακα.
-        </h2>
-      </div>
+    <section className={`services${standalone ? " services--standalone" : ""}`} id="services" ref={sectionRef}>
+      {!standalone && (
+        <div className={`services-header reveal${isRevealed ? " visible" : ""}`}>
+          <div className="section-tag light"><span className="tag-num">02</span> ΥΠΗΡΕΣΙΕΣ</div>
+          <h2>
+            Ολοκληρωμένες τεχνικές
+            <br />
+            λύσεις, σε κάθε κλίμακα.
+          </h2>
+        </div>
+      )}
 
       <div className="bento-grid">
         {services.map((svc, i) => (

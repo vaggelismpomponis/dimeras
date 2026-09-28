@@ -82,7 +82,7 @@ export default function Company() {
         <div className="statement-right">
           <p className={`reveal reveal-delay-1${isRevealed ? " visible" : ""}`}>
             Η <strong>ΔΗΜΕΡΑΣ Ε.Ε.</strong>, με διακριτικό τίτλο{" "}
-            <strong>D N GROUP</strong>, δραστηριοποιείται στον κατασκευαστικό
+            <strong>DN GROUP</strong>, δραστηριοποιείται στον κατασκευαστικό
             κλάδο από το <strong>2006</strong>, διαθέτοντας πολυετή εμπειρία στην
             κατασκευή κτιρίων και στην ολοκληρωμένη εκτέλεση ιδιωτικών και
             επαγγελματικών έργων.

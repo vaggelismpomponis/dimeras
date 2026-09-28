@@ -1,25 +1,27 @@
-import Header from "@/components/Header";
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import Company from "@/components/Company";
 import Services from "@/components/Services";
 import Approach from "@/components/Approach";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import MobileCTA from "@/components/MobileCTA";
+import HomeContactCTA from "@/components/HomeContactCTA";
+
+export const metadata: Metadata = {
+  title: "DN GROUP | ΔΗΜΕΡΑΣ Ε.Ε. — Κατασκευαστική Εταιρεία Λάρισα",
+  description:
+    "Η ΔΗΜΕΡΑΣ Ε.Ε. — DN GROUP αναλαμβάνει νέες κατασκευές, ανακαινίσεις, μονώσεις και τεχνικά έργα στη Λάρισα από το 2006.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (
-    <>
-      <Header />
-      <main>
-        <Hero />
-        <Company />
-        <Services />
-        <Approach />
-        <Contact />
-      </main>
-      <Footer />
-      <MobileCTA />
-    </>
+    <main>
+      <Hero />
+      <Company />
+      <Services />
+      <Approach />
+      <HomeContactCTA />
+    </main>
   );
 }

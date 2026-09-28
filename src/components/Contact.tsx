@@ -30,7 +30,72 @@ const LocationIcon = () => (
   </svg>
 );
 
-export default function Contact() {
+const ClockIcon = () => (
+  <svg className="contact-detail-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="10" cy="10" r="8" />
+    <path d="M10 6v4l3 3" />
+  </svg>
+);
+
+interface ContactProps {
+  /** When true the component is on its own /contact page.
+   *  It hides the old left-col intro (tag + h2 + p) which would
+   *  duplicate the PageHero, and instead shows a side-panel with
+   *  contact details next to the form. */
+  standalone?: boolean;
+}
+
+function CustomSelect({ name, id, options, defaultValue, label }: { name: string, id: string, options: string[], defaultValue: string, label: string }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selected, setSelected] = useState(defaultValue);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  return (
+    <div className="custom-select" ref={wrapperRef}>
+      <input type="hidden" name={name} value={selected} id={id} />
+      <div 
+        className={`custom-select-trigger ${isOpen ? "open" : ""}`}
+        onClick={() => setIsOpen(!isOpen)}
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setIsOpen(!isOpen);
+          }
+        }}
+      >
+        {selected}
+      </div>
+      <label htmlFor={id} className="custom-select-label">{label}</label>
+      <div className={`custom-select-dropdown ${isOpen ? "open" : ""}`}>
+        {options.map((opt) => (
+          <div 
+            key={opt}
+            className={`custom-select-option ${selected === opt ? "selected" : ""}`}
+            onClick={() => {
+              setSelected(opt);
+              setIsOpen(false);
+            }}
+          >
+            {opt}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default function Contact({ standalone = false }: ContactProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [statusMessage, setStatusMessage] = useState("");
@@ -54,6 +119,17 @@ export default function Contact() {
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+    if (status === "success" || status === "error") {
+      timeoutId = setTimeout(() => {
+        setStatus("idle");
+        setStatusMessage("");
+      }, 5000);
+    }
+    return () => clearTimeout(timeoutId);
+  }, [status]);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -101,6 +177,140 @@ export default function Contact() {
     }
   }
 
+  /* ── STANDALONE layout (/contact page) ──────────────────
+     Two-column: contact details panel left, form right.         */
+  if (standalone) {
+    return (
+      <section className="contact contact--standalone" id="contact" ref={sectionRef}>
+        {/* Left — Contact Details Panel */}
+        <div className={`contact-panel reveal${isRevealed ? " visible" : ""}`}>
+          <div className="contact-panel-title">Στοιχεία επικοινωνίας</div>
+
+          <div className="contact-panel-items">
+            <div className="contact-panel-item">
+              <PersonIcon />
+              <div>
+                <small>ΥΠΕΥΘΥΝΟΣ</small>
+                <span>Δημέρας Νικόλαος του Παύλου</span>
+              </div>
+            </div>
+            <div className="contact-panel-item">
+              <PhoneIcon />
+              <div>
+                <small>ΤΗΛΕΦΩΝΟ</small>
+                <a href="tel:+306981772698">698 177 2698</a>
+              </div>
+            </div>
+            <div className="contact-panel-item">
+              <EmailIcon />
+              <div>
+                <small>EMAIL</small>
+                <a href="mailto:dimerasnikos@hotmail.com">dimerasnikos@hotmail.com</a>
+              </div>
+            </div>
+            <div className="contact-panel-item">
+              <LocationIcon />
+              <div>
+                <small>ΕΔΡΑ</small>
+                <a
+                  href="https://maps.google.com/?q=Στρατηγού+Φράγκου+26-30,+Λάρισα"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Στρατηγού Φράγκου 26–30<br />Λάρισα 41222
+                </a>
+              </div>
+            </div>
+            <div className="contact-panel-item">
+              <ClockIcon />
+              <div>
+                <small>ΩΡΑΡΙΟ</small>
+                <span>Δευτ – Παρ, 08:00 – 18:00</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Embedded map */}
+          <div className="contact-panel-map">
+            <iframe
+              src="https://maps.google.com/maps?q=Στρατηγού+Φράγκου+26-30,+Λάρισα&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Τοποθεσία DN GROUP στους Χάρτες Google"
+              allowFullScreen
+            />
+          </div>
+        </div>
+
+        {/* Right — Form */}
+        <div className={`form-card reveal reveal-delay-1${isRevealed ? " visible" : ""}`}>
+          <div className="form-card-title">Αίτημα προσφοράς</div>
+          <div className="form-card-subtitle">
+            Συμπληρώστε τα στοιχεία σας και θα σας απαντήσουμε εντός 24 ωρών.
+          </div>
+
+          <form
+            className="contact-form"
+            id="quote-form"
+            onSubmit={handleSubmit}
+            noValidate
+          >
+            <div className="form-group">
+              <input name="name" required autoComplete="name" placeholder=" " id="field-name" />
+              <label htmlFor="field-name">Ονοματεπώνυμο</label>
+            </div>
+            <div className="form-group">
+              <input name="phone" required inputMode="tel" autoComplete="tel" placeholder=" " id="field-phone" />
+              <label htmlFor="field-phone">Τηλέφωνο</label>
+            </div>
+            <div className="form-group">
+              <input name="email" type="email" autoComplete="email" placeholder=" " id="field-email" />
+              <label htmlFor="field-email">Email</label>
+            </div>
+            <div className="form-group">
+              <CustomSelect
+                name="type"
+                id="field-type"
+                label="Είδος έργου"
+                defaultValue="Νέα κατασκευή"
+                options={["Νέα κατασκευή", "Ανακαίνιση", "Μόνωση ή επισκευή", "Δημόσιο / επαγγελματικό έργο", "Άλλο"]}
+              />
+            </div>
+            <div className="form-group wide">
+              <textarea name="message" rows={5} placeholder=" " id="field-message"></textarea>
+              <label htmlFor="field-message">Σύντομη περιγραφή</label>
+            </div>
+
+            {/* Honeypot */}
+            <input type="text" name="website" className="ohnohoney" tabIndex={-1} autoComplete="off" />
+
+            <button
+              className={`btn-submit${status === "loading" ? " loading" : ""}`}
+              type="submit"
+              disabled={status === "loading"}
+            >
+              Αποστολή αιτήματος
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 8h10M9 4l4 4-4 4" />
+              </svg>
+            </button>
+
+            {status !== "idle" && status !== "loading" && (
+              <div className={`form-status ${status}`} aria-live="polite">
+                {statusMessage}
+              </div>
+            )}
+
+            <p className="form-note" aria-live="polite">
+              Τα στοιχεία σας αποστέλλονται απευθείας σε εμάς και δεν κοινοποιούνται σε τρίτους.
+            </p>
+          </form>
+        </div>
+      </section>
+    );
+  }
+
+  /* ── EMBEDDED layout (homepage section) ───────────────────── */
   return (
     <section className="contact" id="contact" ref={sectionRef}>
       {/* Left — Info */}
@@ -111,7 +321,6 @@ export default function Contact() {
           Περιγράψτε μας το έργο σας και θα επικοινωνήσουμε μαζί σας για αυτοψία
           και αναλυτική προσφορά.
         </p>
-
       </div>
 
       {/* Right — Form Card */}
@@ -128,64 +337,33 @@ export default function Contact() {
           noValidate
         >
           <div className="form-group">
-            <input
-              name="name"
-              required
-              autoComplete="name"
-              placeholder=" "
-              id="field-name"
-            />
+            <input name="name" required autoComplete="name" placeholder=" " id="field-name" />
             <label htmlFor="field-name">Ονοματεπώνυμο</label>
           </div>
           <div className="form-group">
-            <input
-              name="phone"
-              required
-              inputMode="tel"
-              autoComplete="tel"
-              placeholder=" "
-              id="field-phone"
-            />
+            <input name="phone" required inputMode="tel" autoComplete="tel" placeholder=" " id="field-phone" />
             <label htmlFor="field-phone">Τηλέφωνο</label>
           </div>
           <div className="form-group">
-            <input
-              name="email"
-              type="email"
-              autoComplete="email"
-              placeholder=" "
-              id="field-email"
-            />
+            <input name="email" type="email" autoComplete="email" placeholder=" " id="field-email" />
             <label htmlFor="field-email">Email</label>
           </div>
           <div className="form-group">
-            <select name="type" defaultValue="Νέα κατασκευή" id="field-type">
-              <option>Νέα κατασκευή</option>
-              <option>Ανακαίνιση</option>
-              <option>Μόνωση ή επισκευή</option>
-              <option>Δημόσιο / επαγγελματικό έργο</option>
-              <option>Άλλο</option>
-            </select>
-            <label htmlFor="field-type">Είδος έργου</label>
+            <CustomSelect
+              name="type"
+              id="field-type-2"
+              label="Είδος έργου"
+              defaultValue="Νέα κατασκευή"
+              options={["Νέα κατασκευή", "Ανακαίνιση", "Μόνωση ή επισκευή", "Δημόσιο / επαγγελματικό έργο", "Άλλο"]}
+            />
           </div>
           <div className="form-group wide">
-            <textarea
-              name="message"
-              rows={4}
-              placeholder=" "
-              id="field-message"
-            ></textarea>
+            <textarea name="message" rows={4} placeholder=" " id="field-message"></textarea>
             <label htmlFor="field-message">Σύντομη περιγραφή</label>
           </div>
 
           {/* Honeypot */}
-          <input
-            type="text"
-            name="website"
-            className="ohnohoney"
-            tabIndex={-1}
-            autoComplete="off"
-          />
+          <input type="text" name="website" className="ohnohoney" tabIndex={-1} autoComplete="off" />
 
           <button
             className={`btn-submit${status === "loading" ? " loading" : ""}`}
