@@ -101,7 +101,7 @@ export async function POST(request: NextRequest) {
         <div style="max-width:600px;margin:30px auto;background:#fff;border:1px solid #e5e7ea;border-radius:6px;overflow:hidden;">
           <!-- Header -->
           <div style="background:#0b0f14;padding:28px 32px;text-align:center;">
-            <div style="color:#fff;margin-top:10px;font-size:15px;font-weight:700;letter-spacing:0.18em;">DN GROUP</div>
+            <div style="color:#fff;margin-top:10px;font-size:15px;font-weight:700;letter-spacing:0.18em;">DN GROUP | ΔΗΜΕΡΑΣ Ε.Ε.</div>
             <div style="color:#aeb5bd;font-size:10px;letter-spacing:0.16em;">ΔΗΜΕΡΑΣ Ε.Ε.</div>
           </div>
           
