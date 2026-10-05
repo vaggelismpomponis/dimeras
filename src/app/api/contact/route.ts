@@ -137,7 +137,7 @@ export async function POST(request: NextRequest) {
           
           <!-- Footer -->
           <div style="background:#f8f9fa;padding:18px 32px;border-top:1px solid #e5e7ea;">
-            <p style="margin:0;color:#8f98a2;font-size:11px;">Αυτό το email στάλθηκε αυτόματα από τη φόρμα επικοινωνίας του dn-group.gr</p>
+            <p style="margin:0;color:#8f98a2;font-size:11px;">Αυτό το email στάλθηκε αυτόματα από τη φόρμα επικοινωνίας του dimeras.gr</p>
           </div>
         </div>
       </body>
