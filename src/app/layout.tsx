@@ -19,7 +19,7 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.dngroup.gr";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://dimeras.gr";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
