@@ -3,7 +3,6 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import MobileCTA from "@/components/MobileCTA";
 
 const inter = Inter({
   subsets: ["latin", "greek"],
@@ -23,9 +22,9 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://dimeras.gr";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "DN GROUP | ΔΗΜΕΡΑΣ Ε.Ε. — Κατασκευαστική Εταιρεία Λάρισα",
+  title: "DN GROUP - Δημεράς Κατασκευαστική — Κατασκευαστική Εταιρεία Λάρισα",
   description:
-    "Η ΔΗΜΕΡΑΣ Ε.Ε. — DN GROUP αναλαμβάνει νέες κατασκευές, ανακαινίσεις, μονώσεις, επισκευές και τεχνικά έργα στη Λάρισα. Εμπειρία από το 2006.",
+    "Η DN GROUP - Δημεράς Κατασκευαστική αναλαμβάνει νέες κατασκευές, ανακαινίσεις, μονώσεις, επισκευές και τεχνικά έργα στη Λάρισα. Εμπειρία από το 2006.",
   keywords: [
     "κατασκευαστική εταιρεία Λάρισα",
     "ανακαίνιση σπιτιού Λάρισα",
@@ -149,7 +148,6 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
-        <MobileCTA />
       </body>
     </html>
   );

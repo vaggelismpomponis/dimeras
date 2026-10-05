@@ -32,7 +32,7 @@ export default function Footer() {
           <Link className="brand" href="/" aria-label="DN GROUP, αρχική σελίδα">
             <span>
               <strong>DN GROUP</strong>
-              <small>ΔΗΜΕΡΑΣ Ε.Ε.</small>
+              <small>Δημεράς Κατασκευαστική</small>
             </span>
           </Link>
           <p className="footer-tagline">

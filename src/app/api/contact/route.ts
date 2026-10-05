@@ -147,7 +147,7 @@ export async function POST(request: NextRequest) {
     // Send email via Resend
     const resend = new Resend(process.env.RESEND_API_KEY || "dummy_key");
     const { error } = await resend.emails.send({
-      from: "DN GROUP <onboarding@resend.dev>", // TODO: Use noreply@dngroup.gr after verifying domain on Resend
+      from: "DN GROUP | ΔΗΜΕΡΑΣ Ε.Ε. <onboarding@resend.dev>", // TODO: Use noreply@dngroup.gr after verifying domain on Resend
       to: [CONTACT_EMAIL],
       replyTo: email && email.includes("@") ? email : undefined,
       subject: `Αίτημα προσφοράς: ${safeType} — ${safeName}`,
