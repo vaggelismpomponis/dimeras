@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
 
-const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "vaggelisbobonhs@gmail.com"; // TODO: Change fallback to dimerasnikos@hotmail.com once domain is verified
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "info@dimeras.gr";
 
 // Simple in-memory rate limiter
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -147,7 +147,7 @@ export async function POST(request: NextRequest) {
     // Send email via Resend
     const resend = new Resend(process.env.RESEND_API_KEY || "dummy_key");
     const { error } = await resend.emails.send({
-      from: "DN GROUP | ΔΗΜΕΡΑΣ Ε.Ε. <onboarding@resend.dev>", // TODO: Use noreply@dngroup.gr after verifying domain on Resend
+      from: "DN GROUP | ΔΗΜΕΡΑΣ Ε.Ε. <noreply@dimeras.gr>",
       to: [CONTACT_EMAIL],
       replyTo: email && email.includes("@") ? email : undefined,
       subject: `Αίτημα προσφοράς: ${safeType} — ${safeName}`,
