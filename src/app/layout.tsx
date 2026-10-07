@@ -17,8 +17,7 @@ const playfair = Playfair_Display({
   variable: "--font-heading",
   display: "swap",
 });
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://dimeras.gr";
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.dimeras.gr").replace(/\/$/, "");
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
