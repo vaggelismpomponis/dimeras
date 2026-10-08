@@ -20,7 +20,7 @@ export default function Hero() {
       <div className="hero-shade"></div>
 
       <div className="hero-content">
-        <p className="eyebrow">ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ &amp; ΤΕΧΝΙΚΗ ΕΤΑΙΡΕΙΑ</p>
+        <p className="eyebrow">ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ ΚΑΙ ΤΕΧΝΙΚΗ ΕΤΑΙΡΕΙΑ</p>
         <h1>
           Χτίζουμε με
           <br />

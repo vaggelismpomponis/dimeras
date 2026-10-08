@@ -233,7 +233,7 @@ export default function Logo({
             lineHeight: 1.1,
           }}
         >
-          ΔΗΜΕΡΑΣ Ε.Ε. <span style={{ color: "var(--gold)", opacity: 0.75 }}>|</span> ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ
+          ΔΗΜΕΡΑΣ <span style={{ color: "var(--gold)", opacity: 0.75 }}>|</span> ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ
         </small>
       </div>
     </div>

@@ -92,9 +92,7 @@ export default function Services({ standalone = false }: { standalone?: boolean 
           <div className="services-header-main">
             <div className="section-tag light"><span className="tag-num">02</span> ΥΠΗΡΕΣΙΕΣ</div>
             <h2>
-              Ολοκληρωμένες τεχνικές
-              <br />
-              <em>λύσεις, σε κάθε κλίμακα.</em>
+              Ολοκληρωμένες τεχνικές <em>λύσεις, σε κάθε κλίμακα.</em>
             </h2>
           </div>
           <Link href="/services" className="services-header-link">
@@ -115,6 +113,9 @@ export default function Services({ standalone = false }: { standalone?: boolean 
                 <div className="sac-icon-box" aria-hidden="true">
                   {svc.icon}
                 </div>
+                <span className="sac-watermark-num" aria-hidden="true">
+                  {svc.num}
+                </span>
               </div>
 
               <div className="sac-content">
@@ -130,9 +131,6 @@ export default function Services({ standalone = false }: { standalone?: boolean 
                   <span>Ζητήστε Προσφορά</span>
                   <span className="sac-arrow" aria-hidden="true">➔</span>
                 </Link>
-                <span className="sac-watermark-num" aria-hidden="true">
-                  {svc.num}
-                </span>
               </div>
             </article>
           ))}

@@ -215,7 +215,7 @@ export default function Contact({ standalone = false }: ContactProps) {
                 <span className="ch-icon">✓</span>
                 <div>
                   <strong>Γραπτή προσφορά</strong>
-                  <small>Αναλυτικός προϋπολογισμός & χρονοδιάγραμμα</small>
+                  <small>Αναλυτικός προϋπολογισμός και χρονοδιάγραμμα</small>
                 </div>
               </div>
             </div>
@@ -338,32 +338,22 @@ export default function Contact({ standalone = false }: ContactProps) {
             </div>
           </div>
 
-          {/* Right — Google Map (where the form used to be) */}
+          {/* Right — Google Map */}
           <div className={`contact-map-col reveal reveal-delay-1${isRevealed ? " visible" : ""}`}>
-            <div className="contact-map-card">
-              <div className="contact-map-card-header">
-                <div className="cm-title">
-                  <LocationIcon />
-                  <span>Τοποθεσία & Έδρα — Λάρισα</span>
-                </div>
-                <a
-                  href="https://maps.google.com/?q=Στρατηγού+Φράγκου+26-30,+Λάρισα"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cm-directions-btn"
-                >
-                  Οδηγίες Χάρτη ➔
-                </a>
+            <div className="contact-map-header">
+              <div className="contact-map-title">
+                <LocationIcon />
+                <span>Τοποθεσία και Έδρα — Λάρισα</span>
               </div>
-              <div className="contact-map-frame">
-                <iframe
-                  src="https://maps.google.com/maps?q=Στρατηγού+Φράγκου+26-30,+Λάρισα&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Τοποθεσία DN GROUP στους Χάρτες Google"
-                  allowFullScreen
-                />
-              </div>
+            </div>
+            <div className="contact-map-frame">
+              <iframe
+                src="https://maps.google.com/maps?q=Στρατηγού+Φράγκου+26-30,+Λάρισα&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Τοποθεσία DN GROUP στους Χάρτες Google"
+                allowFullScreen
+              />
             </div>
           </div>
         </div>
