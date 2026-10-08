@@ -1,0 +1,60 @@
+<svg width="340" height="80" viewBox="0 0 340 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldStemFull" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#fbf6e2" />
+      <stop offset="25%" stopColor="#e5cd86" />
+      <stop offset="65%" stopColor="#c9a84e" />
+      <stop offset="100%" stopColor="#967428" />
+    </linearGradient>
+
+    <linearGradient id="goldCurveFull" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stopColor="#e8d292" />
+      <stop offset="45%" stopColor="#c9a84e" />
+      <stop offset="100%" stopColor="#82621c" />
+    </linearGradient>
+
+    <linearGradient id="goldTowerFull" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stopColor="#fff3d1" />
+      <stop offset="30%" stopColor="#dfc57b" />
+      <stop offset="100%" stopColor="#a37f2e" />
+    </linearGradient>
+
+    <linearGradient id="goldDiagFull" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#fcf8e8" />
+      <stop offset="40%" stopColor="#d8bc6a" />
+      <stop offset="100%" stopColor="#7a5a14" />
+    </linearGradient>
+
+    <filter id="goldGlowFull" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#000" floodOpacity="0.4" />
+      <feDropShadow dx="0" dy="0" stdDeviation="3.5" floodColor="#c9a84e" floodOpacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Scaled Icon mark on left (scaled by 0.65, offset to y=6) -->
+  <g transform="translate(4, 6) scale(0.65)" filter="url(#goldGlowFull)">
+    <path d="M 54 36 L 59 31 L 59 72 L 54 72 Z" fill="url(#goldTowerFull)" opacity="0.85" />
+    <path d="M 61 24 L 66 19 L 66 72 L 61 72 Z" fill="url(#goldTowerFull)" />
+    <path d="M 68 32 L 73 27 L 73 72 L 68 72 Z" fill="url(#goldTowerFull)" opacity="0.9" />
+    <path d="M 75 42 L 79 38 L 79 72 L 75 72 Z" fill="url(#goldTowerFull)" opacity="0.75" />
+
+    <rect x="20" y="18" width="11" height="84" rx="1" fill="url(#goldStemFull)" />
+    <path d="M 31 18 H 68 C 88 18 102 33 102 60 C 102 87 88 102 68 102 H 31 V 91 H 68 C 82 91 91 80 91 60 C 91 40 82 29 68 29 H 31 Z" fill="url(#goldCurveFull)" />
+
+    <rect x="39" y="38" width="9" height="53" rx="0.5" fill="url(#goldStemFull)" />
+    <path d="M 39 39 L 81 83 L 81 91 L 70 91 L 39 53 Z" fill="url(#goldDiagFull)" />
+    <rect x="73" y="44" width="9" height="47" rx="0.5" fill="url(#goldStemFull)" />
+
+    <rect x="18" y="102" width="86" height="2.5" rx="1" fill="url(#goldStemFull)" opacity="0.6" />
+  </g>
+
+  <!-- Typography on right -->
+  <g transform="translate(84, 0)">
+    <text x="0" y="42" fill="#ffffff" font-family="'Inter', system-ui, sans-serif" font-weight="800" font-size="26" letter-spacing="4">
+      DN <tspan fill="#c9a84e">GROUP</tspan>
+    </text>
+    <text x="1" y="62" fill="#8a929d" font-family="'Inter', system-ui, sans-serif" font-weight="600" font-size="10.5" letter-spacing="2.8">
+      ΔΗΜΕΡΑΣ Ε.Ε. <tspan fill="#c9a84e">|</tspan> ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ
+    </text>
+  </g>
+</svg>

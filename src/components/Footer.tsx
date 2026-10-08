@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Logo from "./Logo";
 
 export default function Footer() {
   const [isVisible, setIsVisible] = useState(false);
@@ -30,10 +31,7 @@ export default function Footer() {
         {/* Brand Column */}
         <div className="footer-brand-col">
           <Link className="brand" href="/" aria-label="DN GROUP, αρχική σελίδα">
-            <span>
-              <strong>DN GROUP</strong>
-              <small>Δημεράς Κατασκευαστική</small>
-            </span>
+            <Logo size="md" />
           </Link>
           <p className="footer-tagline">
             Κατασκευαστική &amp; Τεχνική Εταιρεία στη Λάρισα. Εμπειρία και

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Logo from "./Logo";
 
 const navLinks = [
   { href: "/", label: "Αρχική" },
@@ -66,10 +67,7 @@ export default function Header() {
             }
           }}
         >
-          <span>
-            <strong>DN GROUP</strong>
-            <small>Δημεράς Κατασκευαστική</small>
-          </span>
+          <Logo size="md" />
         </Link>
 
         <nav aria-label="Κύρια πλοήγηση">
@@ -129,10 +127,9 @@ export default function Header() {
       >
         {/* Drawer Header */}
         <div className="mnd-header">
-          <span className="mnd-brand">
-            <strong>DN GROUP</strong>
-            <small>Δημεράς Κατασκευαστική</small>
-          </span>
+          <div className="mnd-brand">
+            <Logo size="sm" />
+          </div>
           <button
             className="mnd-close"
             onClick={closeMenu}

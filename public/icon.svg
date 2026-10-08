@@ -1,4 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="10" fill="#090d12"/>
-  <path d="M13 47V17h15c14 0 23 5 23 15s-9 15-23 15H13zm10-9h6c8 0 12-2 12-6s-4-6-12-6h-6v12z" fill="#c9a84e"/>
+  <defs>
+    <linearGradient id="favGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#fff2cf" />
+      <stop offset="40%" stopColor="#e2c97d" />
+      <stop offset="80%" stopColor="#c9a84e" />
+      <stop offset="100%" stopColor="#967428" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#090d12"/>
+  <rect width="64" height="64" rx="14" fill="none" stroke="#c9a84e" stroke-width="1.5" stroke-opacity="0.3"/>
+  
+  <g transform="translate(4, 3) scale(0.48)">
+    <!-- Skyline Towers -->
+    <path d="M 54 36 L 59 31 L 59 72 L 54 72 Z" fill="url(#favGold)" opacity="0.85" />
+    <path d="M 61 24 L 66 19 L 66 72 L 61 72 Z" fill="url(#favGold)" />
+    <path d="M 68 32 L 73 27 L 73 72 L 68 72 Z" fill="url(#favGold)" opacity="0.9" />
+    <path d="M 75 42 L 79 38 L 79 72 L 75 72 Z" fill="url(#favGold)" opacity="0.75" />
+
+    <!-- D stem & curve -->
+    <rect x="20" y="18" width="11" height="84" rx="1" fill="url(#favGold)" />
+    <path d="M 31 18 H 68 C 88 18 102 33 102 60 C 102 87 88 102 68 102 H 31 V 91 H 68 C 82 91 91 80 91 60 C 91 40 82 29 68 29 H 31 Z" fill="url(#favGold)" />
+
+    <!-- N stem & diagonal -->
+    <rect x="39" y="38" width="9" height="53" rx="0.5" fill="url(#favGold)" />
+    <path d="M 39 39 L 81 83 L 81 91 L 70 91 L 39 53 Z" fill="url(#favGold)" />
+    <rect x="73" y="44" width="9" height="47" rx="0.5" fill="url(#favGold)" />
+
+    <!-- Base -->
+    <rect x="18" y="102" width="86" height="3" rx="1" fill="url(#favGold)" opacity="0.6" />
+  </g>
 </svg>
