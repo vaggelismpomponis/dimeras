@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 const services = [
   {
@@ -63,7 +64,6 @@ const services = [
 
 export default function Services({ standalone = false }: { standalone?: boolean }) {
   const sectionRef = useRef<HTMLElement>(null);
-
   const [isRevealed, setIsRevealed] = useState(false);
 
   useEffect(() => {
@@ -89,28 +89,88 @@ export default function Services({ standalone = false }: { standalone?: boolean 
     <section className={`services${standalone ? " services--standalone" : ""}`} id="services" ref={sectionRef}>
       {!standalone && (
         <div className={`services-header reveal${isRevealed ? " visible" : ""}`}>
-          <div className="section-tag light"><span className="tag-num">02</span> ΥΠΗΡΕΣΙΕΣ</div>
-          <h2>
-            Ολοκληρωμένες τεχνικές
-            <br />
-            λύσεις, σε κάθε κλίμακα.
-          </h2>
+          <div className="services-header-main">
+            <div className="section-tag light"><span className="tag-num">02</span> ΥΠΗΡΕΣΙΕΣ</div>
+            <h2>
+              Ολοκληρωμένες τεχνικές
+              <br />
+              <em>λύσεις, σε κάθε κλίμακα.</em>
+            </h2>
+          </div>
+          <Link href="/services" className="services-header-link">
+            <span>Όλες οι Υπηρεσίες</span>
+            <span className="shl-arrow" aria-hidden="true">➔</span>
+          </Link>
         </div>
       )}
 
-      <div className="bento-grid">
-        {services.map((svc, i) => (
-          <article
-            key={svc.num}
-            className={`bento-card reveal reveal-delay-${i + 1}${isRevealed ? " visible" : ""}`}
-          >
-            <span className="bento-card-num">{svc.num}</span>
-            <div className="bento-card-icon">{svc.icon}</div>
-            <h3>{svc.title}</h3>
-            <p>{svc.desc}</p>
-          </article>
-        ))}
-      </div>
+      {standalone ? (
+        <div className="services-standalone-grid">
+          {services.map((svc, i) => (
+            <article
+              key={svc.num}
+              className={`service-arch-card reveal reveal-delay-${i + 1}${isRevealed ? " visible" : ""}`}
+            >
+              <div className="sac-top-bar">
+                <div className="sac-icon-box" aria-hidden="true">
+                  {svc.icon}
+                </div>
+              </div>
+
+              <div className="sac-content">
+                <h2 className="sac-title">{svc.title}</h2>
+                <p className="sac-desc">{svc.desc}</p>
+              </div>
+
+              <div className="sac-footer">
+                <Link
+                  href={`/contact?type=${encodeURIComponent(svc.title)}`}
+                  className="sac-cta-link"
+                >
+                  <span>Ζητήστε Προσφορά</span>
+                  <span className="sac-arrow" aria-hidden="true">➔</span>
+                </Link>
+                <span className="sac-watermark-num" aria-hidden="true">
+                  {svc.num}
+                </span>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div className="services-home-showcase">
+          {services.map((svc, i) => (
+            <Link
+              key={svc.num}
+              href="/services"
+              className={`service-home-row reveal reveal-delay-${i + 1}${isRevealed ? " visible" : ""}`}
+            >
+              <div className="shr-num-col">
+                <span className="shr-num">{svc.num}</span>
+              </div>
+
+              <div className="shr-title-col">
+                <div className="shr-icon-box" aria-hidden="true">
+                  {svc.icon}
+                </div>
+                <h3 className="shr-title">{svc.title}</h3>
+              </div>
+
+              <div className="shr-desc-col">
+                <p className="shr-desc">{svc.desc}</p>
+              </div>
+
+              <div className="shr-action-col" aria-hidden="true">
+                <span className="shr-arrow-btn">
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M4 10h12M11 5l5 5-5 5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
     </section>
   );
 }
