@@ -178,133 +178,194 @@ export default function Contact({ standalone = false }: ContactProps) {
   }
 
   /* ── STANDALONE layout (/contact page) ──────────────────
-     Two-column: contact details panel left, form right.         */
+     Row 1: Title (left) & Form Card (right)
+     Row 2: Contact Details (left) & Google Map (right)        */
   if (standalone) {
     return (
-      <section className="contact contact--standalone" id="contact" ref={sectionRef}>
-        {/* Left — Contact Details Panel */}
-        <div className={`contact-panel reveal${isRevealed ? " visible" : ""}`}>
-          <div className="contact-panel-title">Στοιχεία επικοινωνίας</div>
+      <section className="contact-standalone-page" id="contact" ref={sectionRef}>
+        {/* ROW 1: Title Left & Form Right */}
+        <div className="contact-top-row">
+          <div className={`contact-title-col reveal${isRevealed ? " visible" : ""}`}>
+            <p className="eyebrow">ΕΠΙΚΟΙΝΩΝΙΑ</p>
+            <h1>
+              Έχετε ένα έργο
+              <br />
+              <em>στο μυαλό σας;</em>
+            </h1>
+            <p className="contact-title-sub">
+              Περιγράψτε μας το έργο σας και θα επικοινωνήσουμε μαζί σας σύντομα για αυτοψία και αναλυτική προσφορά.
+            </p>
 
-          <div className="contact-panel-items">
-            <div className="contact-panel-item">
-              <PersonIcon />
-              <div>
-                <small>ΥΠΕΥΘΥΝΟΣ</small>
-                <span>Δημέρας Νικόλαος του Παύλου</span>
+            <div className="contact-highlights">
+              <div className="contact-highlight-item">
+                <span className="ch-icon">✓</span>
+                <div>
+                  <strong>Άμεση ανταπόκριση</strong>
+                  <small>Επικοινωνία εντός 24 ωρών</small>
+                </div>
+              </div>
+              <div className="contact-highlight-item">
+                <span className="ch-icon">✓</span>
+                <div>
+                  <strong>Δωρεάν αυτοψία</strong>
+                  <small>Επιτόπια εκτίμηση στο χώρο σας</small>
+                </div>
+              </div>
+              <div className="contact-highlight-item">
+                <span className="ch-icon">✓</span>
+                <div>
+                  <strong>Γραπτή προσφορά</strong>
+                  <small>Αναλυτικός προϋπολογισμός & χρονοδιάγραμμα</small>
+                </div>
               </div>
             </div>
-            <div className="contact-panel-item">
-              <PhoneIcon />
-              <div>
-                <small>ΤΗΛΕΦΩΝΟ</small>
-                <a href="tel:+306981772698">698 177 2698</a>
+          </div>
+
+          {/* Form Card (Top Right) */}
+          <div className={`form-card reveal reveal-delay-1${isRevealed ? " visible" : ""}`}>
+            <div className="form-card-title">Αίτημα προσφοράς</div>
+            <div className="form-card-subtitle">
+              Συμπληρώστε τα στοιχεία σας και θα σας απαντήσουμε εντός 24 ωρών.
+            </div>
+
+            <form
+              className="contact-form"
+              id="quote-form"
+              onSubmit={handleSubmit}
+              noValidate
+            >
+              <div className="form-group">
+                <input name="name" required autoComplete="name" placeholder=" " id="field-name" />
+                <label htmlFor="field-name">Ονοματεπώνυμο</label>
+              </div>
+              <div className="form-group">
+                <input name="phone" required inputMode="tel" autoComplete="tel" placeholder=" " id="field-phone" />
+                <label htmlFor="field-phone">Τηλέφωνο</label>
+              </div>
+              <div className="form-group">
+                <input name="email" type="email" autoComplete="email" placeholder=" " id="field-email" />
+                <label htmlFor="field-email">Email</label>
+              </div>
+              <div className="form-group">
+                <CustomSelect
+                  name="type"
+                  id="field-type"
+                  label="Είδος έργου"
+                  defaultValue="Νέα κατασκευή"
+                  options={["Νέα κατασκευή", "Ανακαίνιση", "Μόνωση ή επισκευή", "Δημόσιο / επαγγελματικό έργο", "Άλλο"]}
+                />
+              </div>
+              <div className="form-group wide">
+                <textarea name="message" rows={4} placeholder=" " id="field-message"></textarea>
+                <label htmlFor="field-message">Σύντομη περιγραφή</label>
+              </div>
+
+              {/* Honeypot */}
+              <input type="text" name="website" className="ohnohoney" tabIndex={-1} autoComplete="off" />
+
+              <button
+                className={`btn-submit${status === "loading" ? " loading" : ""}`}
+                type="submit"
+                disabled={status === "loading"}
+              >
+                Αποστολή αιτήματος
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 8h10M9 4l4 4-4 4" />
+                </svg>
+              </button>
+
+              {status !== "idle" && status !== "loading" && (
+                <div className={`form-status ${status}`} aria-live="polite">
+                  {statusMessage}
+                </div>
+              )}
+
+              <p className="form-note" aria-live="polite">
+                Τα στοιχεία σας αποστέλλονται απευθείας σε εμάς και δεν κοινοποιούνται σε τρίτους.
+              </p>
+            </form>
+          </div>
+        </div>
+
+        {/* ROW 2: Contact Details Left & Google Map Right */}
+        <div className="contact-bottom-row">
+          {/* Left — Contact Details Panel */}
+          <div className={`contact-panel reveal${isRevealed ? " visible" : ""}`}>
+            <div className="contact-panel-title">Στοιχεία επικοινωνίας</div>
+
+            <div className="contact-panel-items">
+              <div className="contact-panel-item">
+                <PersonIcon />
+                <div>
+                  <small>ΥΠΕΥΘΥΝΟΣ</small>
+                  <span>Δημέρας Νικόλαος του Παύλου</span>
+                </div>
+              </div>
+              <div className="contact-panel-item">
+                <PhoneIcon />
+                <div>
+                  <small>ΤΗΛΕΦΩΝΟ</small>
+                  <a href="tel:+306981772698">698 177 2698</a>
+                </div>
+              </div>
+              <div className="contact-panel-item">
+                <EmailIcon />
+                <div>
+                  <small>EMAIL</small>
+                  <a href="mailto:dimerasnikos@hotmail.com">dimerasnikos@hotmail.com</a>
+                </div>
+              </div>
+              <div className="contact-panel-item">
+                <LocationIcon />
+                <div>
+                  <small>ΕΔΡΑ</small>
+                  <a
+                    href="https://maps.google.com/?q=Στρατηγού+Φράγκου+26-30,+Λάρισα"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Στρατηγού Φράγκου 26–30<br />Λάρισα 41222
+                  </a>
+                </div>
+              </div>
+              <div className="contact-panel-item">
+                <ClockIcon />
+                <div>
+                  <small>ΩΡΑΡΙΟ</small>
+                  <span>Δευτ – Παρ, 08:00 – 18:00</span>
+                </div>
               </div>
             </div>
-            <div className="contact-panel-item">
-              <EmailIcon />
-              <div>
-                <small>EMAIL</small>
-                <a href="mailto:dimerasnikos@hotmail.com">dimerasnikos@hotmail.com</a>
-              </div>
-            </div>
-            <div className="contact-panel-item">
-              <LocationIcon />
-              <div>
-                <small>ΕΔΡΑ</small>
+          </div>
+
+          {/* Right — Google Map (where the form used to be) */}
+          <div className={`contact-map-col reveal reveal-delay-1${isRevealed ? " visible" : ""}`}>
+            <div className="contact-map-card">
+              <div className="contact-map-card-header">
+                <div className="cm-title">
+                  <LocationIcon />
+                  <span>Τοποθεσία & Έδρα — Λάρισα</span>
+                </div>
                 <a
                   href="https://maps.google.com/?q=Στρατηγού+Φράγκου+26-30,+Λάρισα"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="cm-directions-btn"
                 >
-                  Στρατηγού Φράγκου 26–30<br />Λάρισα 41222
+                  Οδηγίες Χάρτη ➔
                 </a>
               </div>
-            </div>
-            <div className="contact-panel-item">
-              <ClockIcon />
-              <div>
-                <small>ΩΡΑΡΙΟ</small>
-                <span>Δευτ – Παρ, 08:00 – 18:00</span>
+              <div className="contact-map-frame">
+                <iframe
+                  src="https://maps.google.com/maps?q=Στρατηγού+Φράγκου+26-30,+Λάρισα&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Τοποθεσία DN GROUP στους Χάρτες Google"
+                  allowFullScreen
+                />
               </div>
             </div>
           </div>
-
-          {/* Embedded map */}
-          <div className="contact-panel-map">
-            <iframe
-              src="https://maps.google.com/maps?q=Στρατηγού+Φράγκου+26-30,+Λάρισα&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Τοποθεσία DN GROUP στους Χάρτες Google"
-              allowFullScreen
-            />
-          </div>
-        </div>
-
-        {/* Right — Form */}
-        <div className={`form-card reveal reveal-delay-1${isRevealed ? " visible" : ""}`}>
-          <div className="form-card-title">Αίτημα προσφοράς</div>
-          <div className="form-card-subtitle">
-            Συμπληρώστε τα στοιχεία σας και θα σας απαντήσουμε εντός 24 ωρών.
-          </div>
-
-          <form
-            className="contact-form"
-            id="quote-form"
-            onSubmit={handleSubmit}
-            noValidate
-          >
-            <div className="form-group">
-              <input name="name" required autoComplete="name" placeholder=" " id="field-name" />
-              <label htmlFor="field-name">Ονοματεπώνυμο</label>
-            </div>
-            <div className="form-group">
-              <input name="phone" required inputMode="tel" autoComplete="tel" placeholder=" " id="field-phone" />
-              <label htmlFor="field-phone">Τηλέφωνο</label>
-            </div>
-            <div className="form-group">
-              <input name="email" type="email" autoComplete="email" placeholder=" " id="field-email" />
-              <label htmlFor="field-email">Email</label>
-            </div>
-            <div className="form-group">
-              <CustomSelect
-                name="type"
-                id="field-type"
-                label="Είδος έργου"
-                defaultValue="Νέα κατασκευή"
-                options={["Νέα κατασκευή", "Ανακαίνιση", "Μόνωση ή επισκευή", "Δημόσιο / επαγγελματικό έργο", "Άλλο"]}
-              />
-            </div>
-            <div className="form-group wide">
-              <textarea name="message" rows={5} placeholder=" " id="field-message"></textarea>
-              <label htmlFor="field-message">Σύντομη περιγραφή</label>
-            </div>
-
-            {/* Honeypot */}
-            <input type="text" name="website" className="ohnohoney" tabIndex={-1} autoComplete="off" />
-
-            <button
-              className={`btn-submit${status === "loading" ? " loading" : ""}`}
-              type="submit"
-              disabled={status === "loading"}
-            >
-              Αποστολή αιτήματος
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M3 8h10M9 4l4 4-4 4" />
-              </svg>
-            </button>
-
-            {status !== "idle" && status !== "loading" && (
-              <div className={`form-status ${status}`} aria-live="polite">
-                {statusMessage}
-              </div>
-            )}
-
-            <p className="form-note" aria-live="polite">
-              Τα στοιχεία σας αποστέλλονται απευθείας σε εμάς και δεν κοινοποιούνται σε τρίτους.
-            </p>
-          </form>
         </div>
       </section>
     );

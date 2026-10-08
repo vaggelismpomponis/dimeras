@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import PageHero from "@/components/PageHero";
 import Contact from "@/components/Contact";
 
 export const metadata: Metadata = {
@@ -14,12 +13,6 @@ export const metadata: Metadata = {
 export default function EpikoinoniaPage() {
   return (
     <main>
-      <PageHero
-        tag="ΕΠΙΚΟΙΝΩΝΙΑ"
-        title="Έχετε ένα έργο"
-        titleEm="στο μυαλό σας;"
-        subtitle="Περιγράψτε μας το έργο σας και θα επικοινωνήσουμε μαζί σας σύντομα για αυτοψία και αναλυτική προσφορά."
-      />
       <Contact standalone />
     </main>
   );

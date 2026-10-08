@@ -1,28 +1,28 @@
 <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="goldStem" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#fbf6e2" />
-      <stop offset="25%" stopColor="#e5cd86" />
-      <stop offset="65%" stopColor="#c9a84e" />
-      <stop offset="100%" stopColor="#967428" />
+      <stop offset="0%" stop-color="#fbf6e2" />
+      <stop offset="25%" stop-color="#e5cd86" />
+      <stop offset="65%" stop-color="#c9a84e" />
+      <stop offset="100%" stop-color="#967428" />
     </linearGradient>
 
     <linearGradient id="goldCurve" x1="0%" y1="0%" x2="100%" y2="50%">
-      <stop offset="0%" stopColor="#e8d292" />
-      <stop offset="45%" stopColor="#c9a84e" />
-      <stop offset="100%" stopColor="#82621c" />
+      <stop offset="0%" stop-color="#e8d292" />
+      <stop offset="45%" stop-color="#c9a84e" />
+      <stop offset="100%" stop-color="#82621c" />
     </linearGradient>
 
     <linearGradient id="goldTower" x1="50%" y1="0%" x2="50%" y2="100%">
-      <stop offset="0%" stopColor="#fff3d1" />
-      <stop offset="30%" stopColor="#dfc57b" />
-      <stop offset="100%" stopColor="#a37f2e" />
+      <stop offset="0%" stop-color="#fff3d1" />
+      <stop offset="30%" stop-color="#dfc57b" />
+      <stop offset="100%" stop-color="#a37f2e" />
     </linearGradient>
 
     <linearGradient id="goldDiag" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stopColor="#fcf8e8" />
-      <stop offset="40%" stopColor="#d8bc6a" />
-      <stop offset="100%" stopColor="#7a5a14" />
+      <stop offset="0%" stop-color="#fcf8e8" />
+      <stop offset="40%" stop-color="#d8bc6a" />
+      <stop offset="100%" stop-color="#7a5a14" />
     </linearGradient>
 
     <filter id="goldGlow" x="-15%" y="-15%" width="130%" height="130%">
