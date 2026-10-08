@@ -18,10 +18,10 @@ export default function PageHero({ tag, title, titleEm, subtitle }: PageHeroProp
       <div className="page-hero-content">
         <p className="eyebrow">{tag}</p>
         <h1>
-          {title}
+          {title}{" "}
           {titleEm && (
             <>
-              <br />
+              <br className="page-hero-br" />
               <em>{titleEm}</em>
             </>
           )}
