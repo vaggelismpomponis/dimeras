@@ -102,7 +102,7 @@ const jsonLd = {
     "Κατασκευαστική και Τεχνική Εταιρεία στη Λάρισα. Νέες κατασκευές, ανακαινίσεις, μονώσεις, τεχνικά έργα.",
   url: SITE_URL,
   telephone: "+306981772698",
-  email: "info@dngroup.gr",
+  email: "info@dimeras.gr",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Στρατηγού Φράγκου 26-30",

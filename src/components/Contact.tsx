@@ -312,7 +312,7 @@ export default function Contact({ standalone = false }: ContactProps) {
                 <EmailIcon />
                 <div>
                   <small>EMAIL</small>
-                  <a href="mailto:dimerasnikos@hotmail.com">dimerasnikos@hotmail.com</a>
+                  <a href="mailto:info@dimeras.gr">info@dimeras.gr</a>
                 </div>
               </div>
               <div className="contact-panel-item">
