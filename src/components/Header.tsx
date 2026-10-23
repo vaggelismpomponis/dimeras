@@ -56,58 +56,60 @@ export default function Header() {
         className={`site-header${scrolled || forceScrolled ? " scrolled" : ""}`}
         id="top"
       >
-        <Link
-          className="brand"
-          href="/"
-          aria-label="DN GROUP, αρχική σελίδα"
-          onClick={(e) => {
-            if (pathname === "/") {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }
-          }}
-        >
-          <Logo size="md" />
-        </Link>
+        <div className="header-inner">
+          <Link
+            className="brand"
+            href="/"
+            aria-label="DN GROUP, αρχική σελίδα"
+            onClick={(e) => {
+              if (pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+          >
+            <Logo size="md" />
+          </Link>
 
-        <nav aria-label="Κύρια πλοήγηση">
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
-            if (link.href === "/contact") {
+          <nav aria-label="Κύρια πλοήγηση">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              if (link.href === "/contact") {
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="nav-cta"
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              }
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="nav-cta"
+                  className={`nav-link${isActive ? " active" : ""}`}
                   aria-current={isActive ? "page" : undefined}
                 >
                   {link.label}
                 </Link>
               );
-            }
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`nav-link${isActive ? " active" : ""}`}
-                aria-current={isActive ? "page" : undefined}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
+            })}
+          </nav>
 
-        <button
-          className={`menu-btn${menuOpen ? " open" : ""}`}
-          aria-label={menuOpen ? "Κλείσιμο μενού" : "Άνοιγμα μενού"}
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-            <path d="M4 7h16M4 12h16M4 17h16" />
-          </svg>
-        </button>
+          <button
+            className={`menu-btn${menuOpen ? " open" : ""}`}
+            aria-label={menuOpen ? "Κλείσιμο μενού" : "Άνοιγμα μενού"}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+        </div>
       </header>
 
       {/* Mobile Nav Backdrop */}

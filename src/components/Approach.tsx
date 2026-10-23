@@ -94,7 +94,6 @@ export default function Approach() {
   return (
     <section className="approach" id="approach" ref={sectionRef}>
       <div className={`approach-title reveal${isRevealed ? " visible" : ""}`}>
-        <div className="section-tag"><span className="tag-num">03</span> ΤΡΟΠΟΣ ΕΡΓΑΣΙΑΣ</div>
         <h2>
           Ένα έργο.
           <br />

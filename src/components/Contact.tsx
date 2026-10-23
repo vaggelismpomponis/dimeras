@@ -252,7 +252,7 @@ export default function Contact({ standalone = false }: ContactProps) {
                   id="field-type"
                   label="Είδος έργου"
                   defaultValue="Νέα κατασκευή"
-                  options={["Νέα κατασκευή", "Ανακαίνιση", "Μόνωση ή επισκευή", "Δημόσιο / επαγγελματικό έργο", "Άλλο"]}
+                  options={["Νέα κατασκευή", "Ανακαίνιση", "Δημόσιο / επαγγελματικό έργο", "Άλλο"]}
                 />
               </div>
               <div className="form-group wide">
@@ -366,7 +366,6 @@ export default function Contact({ standalone = false }: ContactProps) {
     <section className="contact" id="contact" ref={sectionRef}>
       {/* Left — Info */}
       <div className={`contact-info reveal${isRevealed ? " visible" : ""}`}>
-        <div className="section-tag light"><span className="tag-num">04</span> ΕΠΙΚΟΙΝΩΝΙΑ</div>
         <h2>Έχετε ένα έργο στο μυαλό σας;</h2>
         <p>
           Περιγράψτε μας το έργο σας και θα επικοινωνήσουμε μαζί σας για αυτοψία
@@ -405,7 +404,7 @@ export default function Contact({ standalone = false }: ContactProps) {
               id="field-type-2"
               label="Είδος έργου"
               defaultValue="Νέα κατασκευή"
-              options={["Νέα κατασκευή", "Ανακαίνιση", "Μόνωση ή επισκευή", "Δημόσιο / επαγγελματικό έργο", "Άλλο"]}
+              options={["Νέα κατασκευή", "Ανακαίνιση", "Δημόσιο / επαγγελματικό έργο", "Άλλο"]}
             />
           </div>
           <div className="form-group wide">

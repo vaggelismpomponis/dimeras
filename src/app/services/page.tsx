@@ -5,7 +5,7 @@ import Services from "@/components/Services";
 export const metadata: Metadata = {
   title: "Υπηρεσίες | DN GROUP — Κατασκευαστική Εταιρεία Λάρισα",
   description:
-    "Νεόδμητα κτίρια, ανακαινίσεις κατοικιών, μονώσεις, επισκευές και τεχνικά έργα από την ΔΗΜΕΡΑΣ Ε.Ε. — DN GROUP στη Λάρισα.",
+    "Νεόδμητα κτίρια, ανακαινίσεις κατοικιών και τεχνικά έργα από την ΔΗΜΕΡΑΣ Ε.Ε. — DN GROUP στη Λάρισα.",
   alternates: {
     canonical: "/services",
   },

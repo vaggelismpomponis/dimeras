@@ -40,7 +40,7 @@ export default function Footer() {
         </div>
 
         {/* Nav Column */}
-        <div>
+        <div className="footer-nav-col">
           <div className="footer-nav-title">Πλοήγηση</div>
           <div className="footer-nav-links">
             <Link href="/">Αρχική</Link>
@@ -51,7 +51,7 @@ export default function Footer() {
         </div>
 
         {/* Contact Column */}
-        <div>
+        <div className="footer-contact-col">
           <div className="footer-nav-title">Επικοινωνία</div>
           <div className="contact-panel-items">
             <div className="contact-panel-item">

@@ -3,9 +3,20 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
-const services = [
+interface ServicePoint {
+  label: string;
+  text: string;
+}
+
+interface ServiceItem {
+  title: string;
+  desc?: string;
+  points?: ServicePoint[];
+  icon: React.ReactNode;
+}
+
+const services: ServiceItem[] = [
   {
-    num: "01",
     title: "Νεόδμητα κτίρια",
     desc: "Ολοκληρωμένη κατασκευή κατοικιών και κτιρίων από τη θεμελίωση έως την παράδοση, με συντονισμό όλων των συνεργείων και εργασιών.",
     icon: (
@@ -20,7 +31,6 @@ const services = [
     ),
   },
   {
-    num: "02",
     title: "Ανακαινίσεις κατοικιών",
     desc: "Ολική ή μερική ανακαίνιση κατοικιών και επαγγελματικών χώρων με λειτουργικό σχεδιασμό, τεχνική συνέπεια και ποιοτική εφαρμογή.",
     icon: (
@@ -33,23 +43,21 @@ const services = [
     ),
   },
   {
-    num: "03",
-    title: "Μονώσεις και επισκευές",
-    desc: "Στεγανοποίηση, θερμομόνωση και αποκατάσταση φθορών για αξιόπιστη προστασία του κτιρίου.",
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="6" y="14" width="36" height="28" rx="2" />
-        <path d="M6 22h36" />
-        <path d="M6 30h36" />
-        <path d="M6 38h36" />
-        <path d="M14 6l10 8L34 6" />
-      </svg>
-    ),
-  },
-  {
-    num: "04",
-    title: "Σχολικά και τεχνικά έργα",
-    desc: "Εμπειρία σε ανακαινίσεις σχολικών μονάδων, δημόσιους και επαγγελματικούς χώρους, με έμφαση στις προδιαγραφές, την ασφάλεια και το χρονοδιάγραμμα.",
+    title: "Δημόσια Κτιριακά Έργα",
+    points: [
+      {
+        label: "Πρόγραμμα «Μαριέττα Γιαννάκου»:",
+        text: "Συμμετοχή ως συνεργαζόμενη τεχνική εταιρεία στην ανακαίνιση και αναβάθμιση σχολικών μονάδων.",
+      },
+      {
+        label: "Δύο περίοδοι εργασιών:",
+        text: "Πλήρης ανάληψη οργάνωσης, συντονισμού και εκτέλεσης των παρεμβάσεων.",
+      },
+      {
+        label: "Τεχνική συνέπεια:",
+        text: "Ολοκλήρωση σύμφωνα με τις προβλεπόμενες προδιαγραφές και τα χρονοδιαγράμματα.",
+      },
+    ],
     icon: (
       <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4 20l20-12 20 12" />
@@ -90,7 +98,6 @@ export default function Services({ standalone = false }: { standalone?: boolean 
       {!standalone && (
         <div className={`services-header reveal${isRevealed ? " visible" : ""}`}>
           <div className="services-header-main">
-            <div className="section-tag light"><span className="tag-num">02</span> ΥΠΗΡΕΣΙΕΣ</div>
             <h2>
               Ολοκληρωμένες τεχνικές <em>λύσεις, σε κάθε κλίμακα.</em>
             </h2>
@@ -106,21 +113,30 @@ export default function Services({ standalone = false }: { standalone?: boolean 
         <div className="services-standalone-grid">
           {services.map((svc, i) => (
             <article
-              key={svc.num}
+              key={svc.title}
               className={`service-arch-card reveal reveal-delay-${i + 1}${isRevealed ? " visible" : ""}`}
             >
               <div className="sac-top-bar">
                 <div className="sac-icon-box" aria-hidden="true">
                   {svc.icon}
                 </div>
-                <span className="sac-watermark-num" aria-hidden="true">
-                  {svc.num}
-                </span>
               </div>
 
               <div className="sac-content">
                 <h2 className="sac-title">{svc.title}</h2>
-                <p className="sac-desc">{svc.desc}</p>
+                {svc.desc && <p className="sac-desc">{svc.desc}</p>}
+                {svc.points && svc.points.length > 0 && (
+                  <ul className="sac-points-list">
+                    {svc.points.map((pt, idx) => (
+                      <li key={idx}>
+                        <span className="sac-bullet" aria-hidden="true">•</span>
+                        <span>
+                          <strong>{pt.label}</strong> {pt.text}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
 
               <div className="sac-footer">
@@ -139,14 +155,10 @@ export default function Services({ standalone = false }: { standalone?: boolean 
         <div className="services-home-showcase">
           {services.map((svc, i) => (
             <Link
-              key={svc.num}
+              key={svc.title}
               href="/services"
               className={`service-home-row reveal reveal-delay-${i + 1}${isRevealed ? " visible" : ""}`}
             >
-              <div className="shr-num-col">
-                <span className="shr-num">{svc.num}</span>
-              </div>
-
               <div className="shr-title-col">
                 <div className="shr-icon-box" aria-hidden="true">
                   {svc.icon}
@@ -155,7 +167,19 @@ export default function Services({ standalone = false }: { standalone?: boolean 
               </div>
 
               <div className="shr-desc-col">
-                <p className="shr-desc">{svc.desc}</p>
+                {svc.desc && <p className="shr-desc">{svc.desc}</p>}
+                {svc.points && svc.points.length > 0 && (
+                  <ul className="shr-points-list">
+                    {svc.points.map((pt, idx) => (
+                      <li key={idx}>
+                        <span className="shr-bullet" aria-hidden="true">•</span>
+                        <span>
+                          <strong>{pt.label}</strong> {pt.text}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
 
               <div className="shr-action-col" aria-hidden="true">
