@@ -76,16 +76,16 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/icon.svg?v=4", type: "image/svg+xml" },
-      { url: "/favicon.ico?v=4", sizes: "any" },
-      { url: "/icon-48.png?v=4", sizes: "48x48", type: "image/png" },
-      { url: "/icon-96.png?v=4", sizes: "96x96", type: "image/png" },
-      { url: "/icon-192.png?v=4", sizes: "192x192", type: "image/png" },
+      { url: "/icon.svg?v=5", type: "image/svg+xml" },
+      { url: "/favicon.ico?v=5", sizes: "any" },
+      { url: "/icon-48.png?v=5", sizes: "48x48", type: "image/png" },
+      { url: "/icon-96.png?v=5", sizes: "96x96", type: "image/png" },
+      { url: "/icon-192.png?v=5", sizes: "192x192", type: "image/png" },
     ],
     apple: [
-      { url: "/apple-touch-icon.png?v=4", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png?v=5", sizes: "180x180", type: "image/png" },
     ],
-    shortcut: "/favicon.ico?v=4",
+    shortcut: "/favicon.ico?v=5",
   },
 };
 
@@ -99,6 +99,7 @@ const jsonLd = {
   description:
     "Κατασκευαστική και Τεχνική Εταιρεία στη Λάρισα. Νέες κατασκευές, ανακαινίσεις, τεχνικά έργα.",
   url: SITE_URL,
+  logo: `${SITE_URL}/logo.png`,
   telephone: "+306981772698",
   email: "info@dimeras.gr",
   address: {

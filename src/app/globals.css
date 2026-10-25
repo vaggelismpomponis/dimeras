@@ -1681,6 +1681,14 @@ button:focus {
     padding: 28px 16px;
   }
 
+  .service-home-row::before,
+  .service-home-row:hover::before,
+  .service-home-row:active::before,
+  .service-home-row:focus::before {
+    display: none !important;
+    content: none !important;
+  }
+
   .shr-num-col {
     grid-area: num;
   }
@@ -1726,6 +1734,16 @@ button:focus {
   .shr-arrow-btn {
     width: 38px;
     height: 38px;
+  }
+}
+
+@media (hover: none) {
+  .service-home-row::before,
+  .service-home-row:hover::before,
+  .service-home-row:active::before,
+  .service-home-row:focus::before {
+    display: none !important;
+    content: none !important;
   }
 }
 
