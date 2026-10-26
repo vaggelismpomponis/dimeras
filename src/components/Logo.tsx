@@ -154,7 +154,7 @@ export default function Logo({
               textTransform: "uppercase",
             }}
           >
-            DN <span style={{ color: "var(--gold)" }}>GROUP</span>
+            <span style={{ color: "var(--gold)" }}>GROUP</span>
           </strong>
           <small
             style={{
@@ -209,7 +209,7 @@ export default function Logo({
             textTransform: "uppercase",
           }}
         >
-          DN <span style={{ color: "var(--gold)" }}>GROUP</span>
+          <span style={{ color: "var(--gold)" }}>GROUP</span>
         </strong>
         <small
           style={{
