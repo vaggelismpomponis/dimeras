@@ -34,8 +34,7 @@ export default function Footer() {
             <Logo size="md" />
           </Link>
           <p className="footer-tagline">
-            Κατασκευαστική και Τεχνική Εταιρεία στη Λάρισα. Εμπειρία και
-            αξιοπιστία από το 2006.
+            Ανεξάρτητη Τεχνική και Κατασκευαστική Εταιρεία υπό τη διοίκηση του Νικολάου Δημερά. Έδρα Λάρισα — Έργα σε Θεσσαλία και Αττική από το 2006.
           </p>
         </div>
 
@@ -59,8 +58,8 @@ export default function Footer() {
                 <circle cx="10" cy="6" r="3.5" /><path d="M3 18c0-3.5 3-6 7-6s7 2.5 7 6" />
               </svg>
               <div>
-                <small>ΥΠΕΥΘΥΝΟΣ</small>
-                <span>Δημέρας Νικόλαος του Παύλου</span>
+                <small>ΔΙΟΙΚΗΣΗ &amp; ΕΠΙΒΛΕΨΗ</small>
+                <span>Νικόλαος Δημεράς</span>
               </div>
             </div>
             <div className="contact-panel-item">
@@ -99,7 +98,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="footer-bottom">
-        <p className="footer-copyright">© {year} ΔΗΜΕΡΑΣ Ε.Ε. Με επιφύλαξη παντός δικαιώματος.</p>
+        <p className="footer-copyright">© {year} DN GROUP – ΔΗΜΕΡΑΣ Ε.Ε. Με επιφύλαξη παντός δικαιώματος.</p>
       </div>
 
       <button

@@ -160,15 +160,15 @@ export default function Logo({
             style={{
               display: "block",
               fontSize:
-                size === "sm" ? "0.6rem" : size === "lg" ? "0.76rem" : "0.66rem",
-              letterSpacing: "0.24em",
+                size === "sm" ? "0.58rem" : size === "lg" ? "0.74rem" : "0.64rem",
+              letterSpacing: "0.2em",
               color: light ? "var(--gold)" : "var(--gold-light)",
               textTransform: "uppercase",
               fontWeight: 600,
               marginTop: "4px",
             }}
           >
-            ΔΗΜΕΡΑΣ ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ
+            ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ
           </small>
         </div>
       </div>
@@ -216,11 +216,11 @@ export default function Logo({
             display: "block",
             fontSize:
               size === "sm"
-                ? "0.58rem"
+                ? "0.56rem"
                 : size === "lg"
-                  ? "0.74rem"
-                  : "0.64rem",
-            letterSpacing: "0.22em",
+                  ? "0.72rem"
+                  : "0.62rem",
+            letterSpacing: "0.2em",
             color: light ? "var(--text-dark-secondary)" : "var(--text-secondary)",
             textTransform: "uppercase",
             fontWeight: 600,
@@ -228,7 +228,6 @@ export default function Logo({
             lineHeight: 1.1,
           }}
         >
-          ΔΗΜΕΡΑΣ <span style={{ color: "var(--gold)", opacity: 0.75 }}>|</span>{" "}
           ΚΑΤΑΣΚΕΥΑΣΤΙΚΗ
         </small>
       </div>

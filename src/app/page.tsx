@@ -6,9 +6,9 @@ import Approach from "@/components/Approach";
 import HomeContactCTA from "@/components/HomeContactCTA";
 
 export const metadata: Metadata = {
-  title: "DN GROUP | ΔΗΜΕΡΑΣ— Κατασκευαστική Εταιρεία Λάρισα",
+  title: "DN GROUP – ΔΗΜΕΡΑΣ Ε.Ε. | Ριζικές Ανακαινίσεις και Ολοκληρωμένα Ιδιωτικά Έργα",
   description:
-    "Η ΔΗΜΕΡΑΣ — DN GROUP αναλαμβάνει νέες κατασκευές, ανακαινίσεις και τεχνικά έργα στη Λάρισα από το 2006.",
+    "Ανεξάρτητη τεχνική και κατασκευαστική εταιρεία με έδρα τη Λάρισα υπό τη διοίκηση του Νικολάου Δημερά. Ριζικές ανακαινίσεις, ανακατασκευές κτιρίων & ολοκληρωμένα ιδιωτικά έργα από το 2006.",
   alternates: {
     canonical: "/",
   },

@@ -297,8 +297,8 @@ export default function Contact({ standalone = false }: ContactProps) {
               <div className="contact-panel-item">
                 <PersonIcon />
                 <div>
-                  <small>ΥΠΕΥΘΥΝΟΣ</small>
-                  <span>Δημέρας Νικόλαος του Παύλου</span>
+                  <small>ΔΙΟΙΚΗΣΗ &amp; ΕΠΙΒΛΕΨΗ</small>
+                  <span>Νικόλαος Δημεράς</span>
                 </div>
               </div>
               <div className="contact-panel-item">

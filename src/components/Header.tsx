@@ -210,7 +210,7 @@ export default function Header() {
               <span className="mnd-contact-val">info@dimeras.gr</span>
             </div>
           </a>
-          <p className="mnd-copy">© {new Date().getFullYear()} ΔΗΜΕΡΑΣ Ε.Ε.</p>
+          <p className="mnd-copy">© {new Date().getFullYear()} DN GROUP – ΔΗΜΕΡΑΣ Ε.Ε.</p>
         </div>
       </div>
     </>
