@@ -79,11 +79,8 @@ export default function Company() {
               {/* Card Top */}
               <div className="cdc-header">
                 <div className="cdc-brand">
-                  <span className="cdc-mark">DN</span>
-                  <div>
-                    <strong className="cdc-title">DN GROUP</strong>
-                    <span className="cdc-legal">ΔΗΜΕΡΑΣ Ε.Ε.</span>
-                  </div>
+                  <strong className="cdc-title">DN GROUP</strong>
+                  <span className="cdc-legal">ΔΗΜΕΡΑΣ Ε.Ε.</span>
                 </div>
                 <span className="cdc-tag">ΑΠΟ ΤΟ 2006</span>
               </div>
