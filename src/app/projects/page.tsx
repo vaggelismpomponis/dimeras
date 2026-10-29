@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PageHero from "@/components/PageHero";
+import ProjectsPageHero from "@/components/ProjectsPageHero";
 import ProjectsGallery from "@/components/ProjectsGallery";
 
 export const metadata: Metadata = {
@@ -14,12 +14,7 @@ export const metadata: Metadata = {
 export default function ErgaPage() {
   return (
     <main>
-      <PageHero
-        tag="ΤΑ ΕΡΓΑ ΜΑΣ"
-        title="Δουλειά που"
-        titleEm="μιλάει μόνη της."
-        subtitle="Επιλεγμένα έργα από το χαρτοφυλάκιό μας — νέες κατασκευές, ανακαινίσεις και τεχνικά έργα σε Λάρισα και Θεσσαλία."
-      />
+      <ProjectsPageHero />
       <ProjectsGallery />
     </main>
   );

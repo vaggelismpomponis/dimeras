@@ -1,0 +1,242 @@
+/* ============================================================
+   HERO — homepage
+   The image and the heading do all the work.
+   frontend-design skill applied.
+   ============================================================ */
+
+.hero {
+  min-height: 100dvh;
+  position: relative;
+  color: white;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ── Background image ───────────────────────────────────────── */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  /* One slow, barely-perceptible drift — not a restless zoom loop */
+  animation: heroDrift 30s ease-in-out infinite alternate;
+}
+
+@keyframes heroDrift {
+  from { transform: scale(1); }
+  to   { transform: scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg { animation: none; }
+}
+
+/* ── Overlay — weighted left, open right so image breathes ─── */
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(9, 13, 18, 0.88) 0%, rgba(9, 13, 18, 0.55) 50%, rgba(9, 13, 18, 0.18) 100%),
+    linear-gradient(180deg, rgba(9, 13, 18, 0.2) 0%, rgba(9, 13, 18, 0.5) 100%);
+}
+
+/* ── Content ────────────────────────────────────────────────── */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(720px, 90%);
+  margin-left: clamp(24px, 9vw, 160px);
+  padding-top: var(--header-h);
+}
+
+/* Company kicker — sentence case, modest weight, not a tracking label */
+.hero-kicker {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: rgba(201, 168, 78, 0.75);
+  margin-bottom: 20px;
+}
+
+/* ── Heading — the memorable thing ─────────────────────────── */
+.hero-title {
+  font-family: var(--font-heading), 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin: 0 0 28px;
+  max-width: 14ch;
+}
+
+/* Second line drops to italic gold — the full phrase, not one word */
+.hero-title em {
+  display: block;
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ── Body copy ──────────────────────────────────────────────── */
+.hero-copy {
+  max-width: 58ch;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.82;
+  margin-bottom: 36px;
+}
+
+.hero-copy strong {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+/* ── Actions ────────────────────────────────────────────────── */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 28px;
+  background: var(--gold);
+  color: #090d12;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background 0.18s;
+}
+
+.hero-btn-primary:hover {
+  background: var(--gold-light);
+}
+
+.hero-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 28px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.88rem;
+  font-weight: 500;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: border-color 0.18s, color 0.18s;
+}
+
+.hero-btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: white;
+}
+
+/* ── Scroll cue — minimal, one animation only ───────────────── */
+.hero-scroll-cue {
+  position: absolute;
+  z-index: 3;
+  bottom: 32px;
+  left: clamp(24px, 9vw, 160px);
+}
+
+.hero-scroll-line {
+  display: block;
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(180deg, var(--gold) 0%, transparent 100%);
+  animation: scrollDrop 2.2s ease-in-out infinite;
+}
+
+@keyframes scrollDrop {
+  0%   { opacity: 0; transform: scaleY(0); transform-origin: top; }
+  40%  { opacity: 1; transform: scaleY(1); transform-origin: top; }
+  80%  { opacity: 0; transform: scaleY(1); transform-origin: bottom; }
+  100% { opacity: 0; transform: scaleY(0); transform-origin: bottom; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-line { animation: none; opacity: 0.4; }
+}
+
+/* ── Backward-compat stubs (used by nothing now but kept safe) ─ */
+.eyebrow,
+.hero-pillars-bar,
+.hpb-item,
+.hpb-dot,
+.hero-stats,
+.hero-stat,
+.hero-stat-value,
+.hero-stat-label,
+.scroll-indicator,
+.scroll-indicator-line { display: none; }
+
+/* btn classes still used elsewhere on the page */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 26px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s, color 0.18s;
+  font-family: var(--font-body), 'Inter', sans-serif;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.btn.primary {
+  background: var(--gold);
+  color: var(--bg-deep);
+  border-color: var(--gold);
+}
+
+.btn.primary:hover {
+  background: var(--gold-light);
+  border-color: var(--gold-light);
+}
+
+.btn.ghost {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.btn.ghost:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn .arrow { font-size: 1em; }
+
+/* ── Mobile ─────────────────────────────────────────────────── */
+@media (max-width: 599px) {
+  .hero-content {
+    margin-left: 20px;
+    width: calc(100% - 40px);
+  }
+
+  .hero-title {
+    font-size: clamp(2.6rem, 10.5vw, 3.4rem);
+    max-width: none;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-btn-primary,
+  .hero-btn-ghost {
+    justify-content: center;
+  }
+}

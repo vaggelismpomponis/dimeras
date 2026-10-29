@@ -39,7 +39,7 @@ export default function Company() {
           </div>
 
           <h2 className="company-heading">
-            Ανεξάρτητη Τεχνική και Κατασκευαστική Εταιρεία
+            Ανεξάρτητη τεχνική και κατασκευαστική εταιρεία
           </h2>
           <p className="company-subheading">
             Υπό τη διοίκηση του <strong>Νικολάου Δημερά</strong> • Προσωπική επαγγελματική εμπειρία στον κατασκευαστικό κλάδο από το <strong>2006</strong>
@@ -52,7 +52,7 @@ export default function Company() {
           <div className="company-narrative-col">
             <div className={`company-lead-card reveal reveal-delay-1${isRevealed ? " visible" : ""}`}>
               <p>
-                Η <strong>DN GROUP – ΔΗΜΕΡΑΣ Ε.Ε.</strong> είναι ανεξάρτητη τεχνική και κατασκευαστική εταιρεία με έδρα τη Λάρισα, που δραστηριοποιείται στην ανάληψη και υλοποίηση ολοκληρωμένων ιδιωτικών έργων.
+                Η <strong>DN GROUP – ΔΗΜΕΡΑΣ Ε.Ε.</strong> είναι νέα ανεξάρτητη τεχνική και κατασκευαστική εταιρεία με έδρα τη Λάρισα, που δραστηριοποιείται στην ανάληψη και υλοποίηση ολοκληρωμένων ιδιωτικών έργων.
               </p>
             </div>
 

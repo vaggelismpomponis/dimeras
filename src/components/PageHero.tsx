@@ -1,7 +1,3 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
 interface PageHeroProps {
   tag: string;
   title: string;
@@ -10,11 +6,8 @@ interface PageHeroProps {
 }
 
 export default function PageHero({ tag, title, titleEm, subtitle }: PageHeroProps) {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => { setMounted(true); }, []);
-
   return (
-    <section className={`page-hero${mounted ? " mounted" : ""}`}>
+    <section className="page-hero mounted">
       <div className="page-hero-content">
         <p className="eyebrow">{tag}</p>
         <h1>

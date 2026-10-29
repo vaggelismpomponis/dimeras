@@ -1,0 +1,226 @@
+/* ============================================================
+   BEFORE & AFTER SLIDER COMPONENT
+   ============================================================ */
+.ba-slider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+  background: #090e14;
+  outline: none;
+}
+
+.ba-slider-container:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--gold);
+}
+
+.ba-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  display: block;
+}
+
+.ba-before-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ba-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 44px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: ew-resize;
+  z-index: 10;
+  touch-action: none;
+}
+
+.ba-divider-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7), 0 0 6px var(--gold);
+}
+
+.ba-handle {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(14, 20, 29, 0.92);
+  border: 2px solid var(--gold);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6), 0 0 14px rgba(201, 168, 78, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: var(--gold);
+  transition: transform 0.2s var(--ease), background 0.2s, box-shadow 0.2s;
+}
+
+.ba-slider-container:hover .ba-handle,
+.ba-dragging .ba-handle {
+  transform: scale(1.12);
+  background: var(--gold);
+  color: #0c1118;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8), 0 0 20px rgba(201, 168, 78, 0.7);
+}
+
+.ba-handle-arrows {
+  width: 11px;
+  height: 11px;
+}
+
+.ba-handle-bar {
+  width: 1px;
+  height: 10px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+.ba-badge-wrap {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.ba-badge-wrap-topleft {
+  top: 14px;
+  left: 14px;
+}
+
+.ba-badge-wrap-before {
+  top: 14px;
+  left: 14px;
+}
+
+.ba-badge-wrap-after {
+  top: 14px;
+  right: 14px;
+}
+
+.ba-badge-split-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ba-badge-split-sep {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 700;
+}
+
+.ba-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.ba-badge-before {
+  background: rgba(195, 50, 30, 0.88);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ba-badge-after-badge {
+  background: rgba(18, 120, 65, 0.88);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ba-quick-pills {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  padding: 3px;
+  background: rgba(10, 15, 22, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 100px;
+  z-index: 8;
+}
+
+.ba-pill {
+  padding: 4px 11px;
+  border: none;
+  background: transparent;
+  color: var(--text-tertiary);
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+  white-space: nowrap;
+}
+
+.ba-pill:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.ba-pill.active {
+  background: var(--gold);
+  color: #0c1118;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(201, 168, 78, 0.4);
+}
+
+.ba-expand-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(10, 15, 22, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 8;
+  transition: all 0.2s;
+}
+
+.ba-expand-btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+.ba-expand-btn:hover {
+  background: var(--gold);
+  color: #0c1118;
+  border-color: var(--gold);
+}

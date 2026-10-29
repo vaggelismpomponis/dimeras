@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PageHero from "@/components/PageHero";
+import ServicesPageHero from "@/components/ServicesPageHero";
 import Services from "@/components/Services";
 
 export const metadata: Metadata = {
@@ -14,12 +14,7 @@ export const metadata: Metadata = {
 export default function YpiriesiesPage() {
   return (
     <main>
-      <PageHero
-        tag="ΥΠΗΡΕΣΙΕΣ"
-        title="Ολοκληρωμένα ιδιωτικά"
-        titleEm="κατασκευαστικά έργα."
-        subtitle="Ριζικές ανακαινίσεις κατοικιών, ανακατασκευές κτιρίων, επενδυτικά ακίνητα και ανέγερση νέων κτιρίων σε Λάρισα, Θεσσαλία και Αττική με υπεύθυνη επίβλεψη και σαφή προϋπολογισμό."
-      />
+      <ServicesPageHero />
       <Services standalone />
     </main>
   );

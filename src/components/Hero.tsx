@@ -1,15 +1,16 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Hero() {
-
   return (
     <section className="hero">
+      {/* Background image */}
       <div className="hero-bg">
         <Image
           src="/images/hero-construction.png"
-          alt="Σύγχρονο κτίριο υπό κατασκευή"
+          alt="Σύγχρονο κτίριο υπό κατασκευή — DN GROUP"
           fill
           sizes="100vw"
           style={{ objectFit: "cover" }}
@@ -17,32 +18,38 @@ export default function Hero() {
           quality={85}
         />
       </div>
-      <div className="hero-shade"></div>
+      <div className="hero-shade" aria-hidden="true" />
 
       <div className="hero-content">
-        <p className="eyebrow">DN GROUP – ΔΗΜΕΡΑΣ Ε.Ε.</p>
-        <h1 className="hero-title-main">
-          <span>Ριζικές Ανακαινίσεις</span>
-          <span className="hero-title-secondary"> και <em>Ολοκληρωμένα Έργα</em></span>
+        {/* Company name — not ALL CAPS, not tracked-out eyebrow */}
+        <p className="hero-kicker">DN GROUP · Δημερά&nbsp;Ε.Ε.</p>
+
+        <h1 className="hero-title">
+          Ριζικές Ανακαινίσεις
+          <em>και Ολοκληρωμένα Έργα.</em>
         </h1>
-        <div className="hero-pillars-bar" aria-label="Τομείς δραστηριότητας">
-          <span className="hpb-item">Κατοικίες</span>
-          <span className="hpb-dot" aria-hidden="true">•</span>
-          <span className="hpb-item">Πολυκατοικίες</span>
-          <span className="hpb-dot" aria-hidden="true">•</span>
-          <span className="hpb-item">Επενδυτικά Κτίρια</span>
-        </div>
+
         <p className="hero-copy">
-          Ανεξάρτητη τεχνική και κατασκευαστική εταιρεία με έδρα τη Λάρισα, υπό τη διοίκηση του <strong>Νικολάου Δημερά</strong>. Αναλαμβάνουμε ολοκληρωμένα ιδιωτικά κατασκευαστικά έργα με εμπειρία στον κλάδο από το <strong>2006</strong> σε <strong>Λάρισα, Θεσσαλία και Αττική</strong>.
+          Ανεξάρτητη τεχνική και κατασκευαστική εταιρεία με έδρα τη Λάρισα,
+          υπό τη διοίκηση του <strong>Νικολάου Δημερά</strong>. Αναλαμβάνουμε
+          ολοκληρωμένα ιδιωτικά κατασκευαστικά έργα με εμπειρία στον κλάδο από
+          το <strong>2006</strong> σε{" "}
+          <strong>Λάρισα, Θεσσαλία και Αττική</strong>.
         </p>
+
         <div className="hero-actions">
-          <a className="btn primary" href="#contact">
-            Ζητήστε προσφορά
-          </a>
-          <a className="btn ghost" href="#company">
-            Η Εταιρεία μας <span className="arrow">→</span>
-          </a>
+          <Link className="hero-btn-primary" href="/contact">
+            Ζητήστε Προσφορά
+          </Link>
+          <Link className="hero-btn-ghost" href="/services">
+            Η Εταιρεία μας
+          </Link>
         </div>
+      </div>
+
+      {/* Scroll cue — single line, no animation noise */}
+      <div className="hero-scroll-cue" aria-hidden="true">
+        <span className="hero-scroll-line" />
       </div>
     </section>
   );

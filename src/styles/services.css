@@ -1,0 +1,522 @@
+/* ============================================================
+   SERVICES — /services page
+   Ledger-row format. The structure encodes the information.
+   frontend-design skill applied.
+   ============================================================ */
+
+/* ── Section ────────────────────────────────────────────────── */
+.services {
+  background: var(--bg-deep);
+  padding: clamp(80px, 9vw, 160px) clamp(24px, 7vw, 120px);
+  position: relative;
+  overflow: hidden;
+}
+
+.services--standalone {
+  background: var(--bg-deep);
+  padding: 0 0 clamp(80px, 10vw, 140px);
+}
+
+/* ── Homepage header (non-standalone) ──────────────────────── */
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  margin-bottom: clamp(48px, 6vw, 72px);
+  position: relative;
+  z-index: 1;
+}
+
+.services-header-main {
+  flex: 1;
+}
+
+.services-header h2 {
+  font-family: var(--font-heading), 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.4rem, 4.2vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.14;
+  text-align: left;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.services-header h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.services-eyebrow {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.services-header-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border: 1px solid rgba(201, 168, 78, 0.3);
+  background: transparent;
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background 0.18s, color 0.18s;
+  flex-shrink: 0;
+}
+
+.services-header-link:hover {
+  background: var(--gold);
+  color: var(--bg-deep);
+}
+
+.shl-arrow {
+  font-size: 0.85rem;
+}
+
+/* ── Homepage Services Showcase (Editorial Rows) ────────────── */
+.services-home-showcase {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+}
+
+.service-home-row {
+  display: grid;
+  grid-template-columns: 1.35fr 2fr 60px;
+  align-items: center;
+  gap: clamp(24px, 3.5vw, 48px);
+  padding: clamp(32px, 3.8vw, 48px) clamp(16px, 2.5vw, 32px);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  background: transparent;
+  transition: background 0.3s;
+}
+
+.service-home-row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--gold);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.service-home-row:hover {
+  background: rgba(201, 168, 78, 0.035);
+}
+
+.service-home-row:hover::before {
+  transform: scaleY(1);
+}
+
+.shr-num-col { display: flex; align-items: center; }
+
+.shr-num {
+  font-family: var(--font-heading), 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.2rem, 3.2vw, 3rem);
+  font-weight: 700;
+  color: rgba(201, 168, 78, 0.3);
+  line-height: 1;
+  transition: color 0.3s;
+}
+
+.service-home-row:hover .shr-num { color: var(--gold); }
+
+.shr-title-col {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.shr-icon-box {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(201, 168, 78, 0.2);
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  flex-shrink: 0;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.shr-icon-box svg { width: 24px; height: 24px; }
+
+.service-home-row:hover .shr-icon-box {
+  border-color: rgba(201, 168, 78, 0.5);
+  background: rgba(201, 168, 78, 0.06);
+}
+
+.shr-title {
+  font-family: var(--font-heading), 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.4rem, 1.9vw, 1.8rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.shr-desc-col { padding-right: 20px; }
+
+.shr-desc {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.shr-points-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.shr-points-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.shr-bullet {
+  color: var(--gold);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+.shr-points-list strong {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+}
+
+.shr-action-col { display: flex; justify-content: flex-end; }
+
+.shr-arrow-btn {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: var(--text-tertiary);
+  display: grid;
+  place-items: center;
+  transition: background 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.shr-arrow-btn svg { transition: transform 0.25s; }
+
+.service-home-row:hover .shr-arrow-btn {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--bg-deep);
+}
+
+.service-home-row:hover .shr-arrow-btn svg {
+  transform: translateX(2px);
+}
+
+/* ── Standalone /services page — numbered ledger ────────────── */
+.services-standalone-grid {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 0 clamp(20px, 6vw, 120px);
+}
+
+/* ── Service ledger row (replaces card) ─────────────────────── */
+.service-arch-card {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 0 clamp(28px, 4vw, 56px);
+  padding: clamp(36px, 5vw, 60px) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  position: relative;
+  transition: background 0.2s;
+}
+
+/* Remove old card chrome entirely */
+.service-arch-card::before { display: none; }
+.service-arch-card:hover { background: none; transform: none; box-shadow: none; }
+
+/* Index column */
+.sac-top-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 4px;
+  gap: 16px;
+  margin-bottom: 0;
+}
+
+.sac-index {
+  font-family: var(--font-heading), 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 700;
+  color: rgba(201, 168, 78, 0.28);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  transition: color 0.2s;
+}
+
+.service-arch-card:hover .sac-index {
+  color: rgba(201, 168, 78, 0.55);
+}
+
+.sac-icon-box {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(201, 168, 78, 0.18);
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  border-radius: 0;
+  background: transparent;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.sac-icon-box svg { width: 22px; height: 22px; }
+
+.service-arch-card:hover .sac-icon-box {
+  border-color: rgba(201, 168, 78, 0.4);
+  background: rgba(201, 168, 78, 0.05);
+}
+
+/* Content column */
+.sac-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sac-title {
+  font-family: var(--font-heading), 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.sac-desc {
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.78;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 68ch;
+}
+
+.sac-points-list {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sac-points-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.sac-bullet {
+  color: var(--gold);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  flex-shrink: 0;
+}
+
+.sac-points-list strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Footer CTA — plain text link, no arrows */
+.sac-footer {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sac-cta-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 22px;
+  border: 1px solid rgba(201, 168, 78, 0.3);
+  color: var(--gold);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+
+.sac-cta-link:hover {
+  background: var(--gold);
+  color: var(--bg-deep);
+  border-color: var(--gold);
+}
+
+/* Unused old styles — kept as stubs so nothing breaks */
+.sac-arrow { display: none; }
+.sac-watermark-num { display: none; }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .service-arch-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .sac-top-bar {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .services-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .service-home-row {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "title arrow"
+      "desc  desc";
+    row-gap: 14px;
+    padding: 28px 16px;
+  }
+
+  .service-home-row::before { display: none; }
+
+  .shr-num-col { display: none; }
+  .shr-title-col { grid-area: title; }
+  .shr-desc-col  { grid-area: desc; padding-right: 0; }
+  .shr-action-col { grid-area: arrow; }
+}
+
+@media (max-width: 600px) {
+  .services--standalone {
+    padding-bottom: 60px;
+  }
+
+  .services-standalone-grid {
+    padding: 0 20px;
+  }
+
+  .service-home-row {
+    padding: 24px 8px;
+  }
+
+  .shr-icon-box { width: 40px; height: 40px; }
+  .shr-icon-box svg { width: 20px; height: 20px; }
+  .shr-arrow-btn { width: 36px; height: 36px; }
+
+  .sac-cta-link {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (hover: none) {
+  .service-home-row::before { display: none; }
+}
+
+/* ── Bento Grid (kept for compatibility) ────────────────────── */
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bento-card {
+  background: var(--bg-surface);
+  padding: clamp(28px, 3vw, 44px);
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+  position: relative;
+  overflow: visible;
+  transition: background 0.3s;
+}
+
+.bento-card-inner-clip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bento-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.bento-card:hover { background: var(--bg-raised); }
+.bento-card:hover::before { transform: scaleX(1); }
+
+@media (min-width: 901px) {
+  .bento-card:nth-child(3) { grid-column: 1; }
+  .bento-card:nth-child(4) { grid-column: 2; }
+}
+
+.bento-card-num {
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  font-family: var(--font-heading), 'Playfair Display', Georgia, serif;
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.1);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.bento-card-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--gold);
+  margin-bottom: 20px;
+  margin-top: auto;
+}

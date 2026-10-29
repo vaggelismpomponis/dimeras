@@ -1,0 +1,99 @@
+/* ============================================================
+   APPROACH
+   ============================================================ */
+.approach {
+  background: var(--bg-paper);
+  color: var(--text-dark);
+  padding: clamp(80px, 10vw, 160px) clamp(24px, 9vw, 160px);
+  display: grid;
+  grid-template-columns: 0.45fr 0.55fr;
+  gap: clamp(40px, 6vw, 100px);
+}
+
+.approach-title .section-tag {
+  margin-bottom: 32px;
+}
+
+.approach-title h2 {
+  font-family: var(--font-heading), 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.4rem, 4.4vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1.08;
+  margin: 0;
+}
+
+.approach-title h2 span {
+  color: var(--text-dark-secondary);
+}
+
+/* Timeline */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border-light);
+}
+
+.timeline-line-fill {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 1px;
+  height: 0;
+  background: var(--gold);
+  transition: height 1.2s var(--ease-out);
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 24px;
+  padding: 28px 0;
+  position: relative;
+}
+
+.timeline-node {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--border-light);
+  display: grid;
+  place-items: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-dark-secondary);
+  background: var(--bg-paper);
+  position: relative;
+  z-index: 1;
+  transition: border-color 0.4s, color 0.4s, background 0.4s;
+}
+
+.timeline-item.active .timeline-node {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(201, 168, 78, 0.08);
+}
+
+.timeline-item h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: var(--text-dark);
+}
+
+.timeline-item p {
+  margin: 0;
+  color: var(--text-dark-secondary);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}

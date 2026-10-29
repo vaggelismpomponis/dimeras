@@ -1,0 +1,336 @@
+/* ============================================================
+   COMPANY / STATEMENT (Redesigned Editorial Layout)
+   ============================================================ */
+.statement {
+  background: var(--bg-paper);
+  color: var(--text-dark);
+  padding: clamp(70px, 8vw, 130px) clamp(24px, 6vw, 80px);
+  position: relative;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  scroll-margin-top: var(--header-h);
+}
+
+.company-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* Company Header */
+.company-header {
+  margin-bottom: clamp(36px, 4.5vw, 56px);
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.company-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.company-header-top .section-tag {
+  margin-bottom: 0;
+}
+
+.company-geo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-dark-secondary);
+  padding: 6px 14px;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+}
+
+.cgb-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.company-heading {
+  font-family: var(--font-heading), 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.75rem, 3.4vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--text-dark);
+  margin: 0 0 12px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.company-heading em {
+  font-style: italic;
+  color: var(--gold-dark);
+}
+
+.company-subheading {
+  font-size: 1.05rem;
+  color: var(--text-dark-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.company-subheading strong {
+  color: var(--text-dark);
+}
+
+/* 2-Column Grid */
+.company-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(36px, 4.5vw, 64px);
+  align-items: start;
+}
+
+/* Left: Narrative */
+.company-lead-card {
+  padding: 24px 28px;
+  background: #ffffff;
+  
+  border-radius: 4px;
+
+  margin-bottom: 24px;
+}
+
+.company-lead-card p {
+  font-size: 1.12rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.company-lead-card strong {
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.company-body-text p {
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: var(--text-dark-secondary);
+  margin-bottom: 20px;
+}
+
+.company-body-text strong {
+  color: var(--text-dark);
+}
+
+.company-actions {
+  margin-top: 32px;
+}
+
+.company-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 28px;
+  background: var(--bg-deep);
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: 4px;
+  transition: all 0.35s var(--ease);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  text-decoration: none;
+}
+
+.company-cta-btn:hover {
+  background: var(--gold);
+  color: var(--bg-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(201, 168, 78, 0.35);
+}
+
+/* Right: Architectural Dossier Card */
+.company-dossier-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.company-dossier-card::before { display: none; }
+
+.cdc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.cdc-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cdc-title {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--text-dark);
+}
+
+.cdc-legal {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--text-dark-secondary);
+  font-weight: 600;
+}
+
+.cdc-tag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--gold-dark);
+  padding: 4px 10px;
+  background: rgba(201, 168, 78, 0.12);
+  border-radius: 4px;
+}
+
+.cdc-section {
+  margin-bottom: 20px;
+}
+
+.cdc-section:last-child {
+  margin-bottom: 0;
+}
+
+.cdc-label {
+  display: block;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--gold-dark);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.cdc-name {
+  font-family: var(--font-heading), 'Playfair Display', Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 8px;
+}
+
+.cdc-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-dark-secondary);
+  margin: 0;
+}
+
+.cdc-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.06);
+  margin: 20px 0;
+}
+
+.cdc-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cdc-pill {
+  display: block;
+  padding: 10px 14px;
+  background: #f7f7f5;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  transition: all 0.25s ease;
+}
+
+.cdc-pill:hover {
+  background: #ffffff;
+  border-color: var(--gold);
+  transform: translateX(4px);
+}
+
+.cdc-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.cdc-location svg {
+  color: var(--gold-dark);
+  flex-shrink: 0;
+}
+
+.cdc-scope {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--gold-dark);
+  padding-left: 24px;
+}
+
+.services-eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+/* Counters */
+.counters-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: clamp(48px, 6vw, 80px);
+  background: var(--border-light);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.counter-item {
+  background: var(--bg-paper);
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.counter-value {
+  font-family: var(--font-heading), 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.counter-label {
+  font-size: 0.72rem;
+  color: var(--text-dark-secondary);
+  letter-spacing: 0.06em;
+  margin-top: 8px;
+  font-weight: 500;
+}
+

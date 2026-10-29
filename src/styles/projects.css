@@ -1,0 +1,356 @@
+/* ============================================================
+   PROJECTS GALLERY (/projects)
+   frontend-design skill applied.
+   ============================================================ */
+
+.projects-section {
+  background: var(--bg-deep);
+  padding: clamp(32px, 5vw, 56px) clamp(24px, 8vw, 140px) clamp(80px, 10vw, 140px);
+  position: relative;
+}
+
+/* ── Filter bar — flat underline tabs, not pills ────────────── */
+.projects-filters-wrap {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: clamp(40px, 5vw, 64px);
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.projects-filters {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 14px 22px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--text-tertiary);
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: color 0.18s, border-color 0.18s;
+  margin-bottom: -1px;
+  white-space: nowrap;
+}
+
+.filter-btn:hover {
+  color: var(--text-primary);
+}
+
+.filter-btn.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+  font-weight: 600;
+}
+
+/* ── Project grid ───────────────────────────────────────────── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1px, 0.15vw, 2px);
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1100px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 680px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Project card — clean, flat ─────────────────────────────── */
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0;
+  overflow: hidden;
+  transition: border-color 0.22s;
+}
+
+/* No floating topline gradient — removed */
+.project-card-topline { display: none; }
+
+.project-card:hover {
+  border-color: rgba(201, 168, 78, 0.22);
+  transform: none;
+  box-shadow: none;
+}
+
+/* ── Card image area ────────────────────────────────────────── */
+.project-card-image {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #090e14;
+}
+
+.project-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease);
+}
+
+.project-card:hover .project-card-image img {
+  transform: scale(1.04);
+}
+
+/* Blueprint placeholder (no-image state) */
+.project-card-blueprint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a0f16;
+  overflow: hidden;
+}
+
+.pcb-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(201, 168, 78, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(201, 168, 78, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.pcb-mark {
+  position: absolute;
+  font-family: monospace;
+  font-size: 10px;
+  color: rgba(201, 168, 78, 0.3);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.pcb-mark-tl { top: 10px; left: 10px; }
+.pcb-mark-tr { top: 10px; right: 10px; }
+.pcb-mark-bl { bottom: 10px; left: 10px; }
+.pcb-mark-br { bottom: 10px; right: 10px; }
+
+.pcb-center {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.pcb-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(201, 168, 78, 0.2);
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+}
+
+.pcb-icon-wrap svg { width: 24px; height: 24px; }
+
+.pcb-coord {
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: rgba(201, 168, 78, 0.4);
+  text-transform: uppercase;
+}
+
+/* Category label — plain text, not a pill ──────────────────── */
+.project-card-category {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(201, 168, 78, 0.85);
+  text-transform: uppercase;
+  background: rgba(9, 13, 18, 0.72);
+  backdrop-filter: blur(8px);
+  padding: 4px 8px;
+  border-left: 2px solid var(--gold);
+}
+
+/* Before/After photo count — simple flat tag */
+.project-card-ba-pill {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 6;
+  padding: 4px 10px;
+  background: rgba(9, 13, 18, 0.8);
+  border: 1px solid rgba(201, 168, 78, 0.35);
+  border-radius: 2px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+
+.project-card-ba-pill:hover {
+  background: var(--gold);
+  color: #090d12;
+  border-color: var(--gold);
+}
+
+/* ── Card body ──────────────────────────────────────────────── */
+.project-card-body {
+  padding: clamp(20px, 2.5vw, 28px);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.project-card-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-tertiary);
+}
+
+.project-card-location svg { color: var(--gold); }
+
+/* Year — plain text, not a pill */
+.project-card-year {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  letter-spacing: 0.04em;
+}
+
+.project-card-title {
+  font-family: var(--font-heading), 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.15rem, 1.5vw, 1.35rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 5px;
+  line-height: 1.28;
+}
+
+.project-card-subtitle {
+  font-size: 0.8rem;
+  color: var(--gold);
+  font-weight: 500;
+  margin: 0 0 10px;
+  line-height: 1.4;
+}
+
+.project-card-desc {
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0 0 12px;
+  flex: 1;
+}
+
+/* Scope strip — left rule instead of bg card */
+.project-card-scope {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0 0 16px;
+  padding: 8px 0 8px 12px;
+  border-left: 2px solid rgba(201, 168, 78, 0.4);
+}
+
+.project-card-scope strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ── Card footer ────────────────────────────────────────────── */
+.project-card-footer {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Gallery button — flat outlined */
+.project-card-gallery-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: transparent;
+  border: 1px solid rgba(201, 168, 78, 0.25);
+  border-radius: 3px;
+  color: var(--gold);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, border-color 0.18s, color 0.18s;
+  width: 100%;
+}
+
+.project-card-gallery-btn:hover {
+  background: var(--gold);
+  color: #090d12;
+  border-color: var(--gold);
+}
+
+/* Contact link — plain */
+.project-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-tertiary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: color 0.18s;
+}
+
+.project-card-cta:hover { color: var(--gold); }
+
+.pca-arrow { display: none; }
+
+/* ── Empty state ────────────────────────────────────────────── */
+.projects-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  grid-column: 1 / -1;
+}
+
+.projects-empty-state p {
+  font-size: 0.95rem;
+}

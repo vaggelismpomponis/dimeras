@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import Company from "@/components/Company";
 import Services from "@/components/Services";
+import HomeProjectsShowcase from "@/components/HomeProjectsShowcase";
 import Approach from "@/components/Approach";
 import HomeContactCTA from "@/components/HomeContactCTA";
 
@@ -20,6 +21,7 @@ export default function Home() {
       <Hero />
       <Company />
       <Services />
+      <HomeProjectsShowcase />
       <Approach />
       <HomeContactCTA />
     </main>

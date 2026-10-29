@@ -1,0 +1,526 @@
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* Tablet Landscape */
+@media (max-width: 1200px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stats {
+    flex-wrap: wrap;
+  }
+}
+
+/* Tablet Portrait */
+@media (max-width: 900px) {
+  :root {
+    --header-h: 76px;
+  }
+
+  .site-header nav {
+    display: none;
+  }
+
+  .menu-btn {
+    display: flex;
+  }
+
+  .hero-content {
+    margin: 0 auto;
+    padding: calc(var(--header-h) + 40px) 24px 0;
+    text-align: left;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero h1,
+  .hero-title-main {
+    font-size: clamp(1.85rem, 6.2vw, 2.9rem);
+    line-height: 1.2;
+    margin-bottom: 18px;
+    max-width: 100%;
+  }
+
+  .hero-pillars-bar {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    padding: 7px 14px;
+    margin-bottom: 22px;
+  }
+
+  .hpb-item {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-stats {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: 48px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-stat {
+    min-width: 140px;
+    flex: 1;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+
+  /* Company section tablet */
+  .statement {
+    padding: clamp(50px, 7vw, 90px) clamp(20px, 4vw, 40px);
+    overflow-x: hidden;
+  }
+
+  .company-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .company-narrative-col,
+  .company-dossier-col {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .company-header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .company-heading {
+    font-size: clamp(1.65rem, 5.2vw, 2.4rem);
+    line-height: 1.22;
+  }
+
+  .company-subheading {
+    font-size: 0.96rem;
+    line-height: 1.6;
+  }
+
+  .company-lead-card {
+    padding: 20px 22px;
+    margin-bottom: 20px;
+  }
+
+  .company-lead-card p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+  }
+
+  .company-body-text p {
+    font-size: 0.98rem;
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  .company-actions {
+    margin-top: 24px;
+  }
+
+  .company-cta-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 0.82rem;
+  }
+
+  .company-dossier-card {
+    padding: 26px 22px;
+  }
+
+  .counters-bar {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .services-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .services-header h2 {
+    text-align: left;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-card {
+    min-height: auto;
+    padding: clamp(20px, 4vw, 36px);
+  }
+
+  .approach {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form .form-group {
+    grid-column: 1;
+  }
+
+  .contact-form .form-group.wide {
+    grid-column: 1;
+  }
+
+  .footer-main {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 36px;
+    padding: 40px 0;
+  }
+
+  .footer-brand-col,
+  .footer-nav-col,
+  .footer-contact-col {
+    max-width: 100%;
+    flex: none;
+  }
+
+  .mobile-cta {
+    display: block;
+  }
+}
+
+/* Mobile */
+@media (max-width: 599px) {
+  .hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  .hero-content {
+    padding: calc(var(--header-h) + 20px) 16px 36px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    margin-bottom: 12px;
+  }
+
+  .eyebrow::before {
+    width: 20px;
+  }
+
+  .hero h1,
+  .hero-title-main {
+    font-size: clamp(1.48rem, 6.4vw, 1.95rem);
+    line-height: 1.22;
+    margin-bottom: 14px;
+    max-width: 100%;
+  }
+
+  .hero-pillars-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 8px;
+    padding: 6px 10px;
+    margin-bottom: 18px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hpb-item {
+    font-size: 0.66rem;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .hpb-dot {
+    font-size: 0.72rem;
+  }
+
+  .hero-copy {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    margin-bottom: 24px;
+    max-width: 100%;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 0.92rem;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 1px;
+    align-items: stretch;
+  }
+
+  .hero-stat {
+    min-width: auto;
+    border-radius: 0;
+  }
+
+  .hero-stat:first-child {
+    border-radius: 4px 4px 0 0;
+  }
+
+  .hero-stat:last-child {
+    border-radius: 0 0 4px 4px;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-card {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .counters-bar {
+    grid-template-columns: 1fr;
+  }
+
+  /* Company section mobile */
+  .statement {
+    padding: 44px 16px;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .company-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .company-header {
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+  }
+
+  .company-geo-badge {
+    font-size: 0.66rem;
+    padding: 4px 10px;
+    letter-spacing: 0.08em;
+  }
+
+  .company-heading {
+    font-size: clamp(1.35rem, 5.8vw, 1.75rem);
+    line-height: 1.25;
+  }
+
+  .company-subheading {
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .company-lead-card {
+    padding: 16px 16px;
+    margin-bottom: 16px;
+    border-left-width: 3px;
+  }
+
+  .company-lead-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .company-body-text p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+
+  .company-cta-btn {
+    padding: 14px 16px;
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  .company-dossier-card {
+    padding: 20px 16px;
+    border-radius: 8px;
+    width: 100%;
+  }
+
+  .cdc-header {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+  }
+
+
+  .cdc-title {
+    font-size: 0.95rem;
+  }
+
+  .cdc-tag {
+    font-size: 0.64rem;
+    padding: 3px 8px;
+  }
+
+  .cdc-name {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+  }
+
+  .cdc-desc {
+    font-size: 0.84rem;
+    line-height: 1.6;
+  }
+
+  .cdc-pill {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .cdc-location {
+    font-size: 0.82rem;
+  }
+
+  .cdc-scope {
+    font-size: 0.72rem;
+    padding-left: 20px;
+  }
+
+  .approach,
+  .contact {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .services {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .contact-info h2 {
+    font-size: clamp(2.4rem, 8vw, 3.2rem);
+  }
+
+  .form-card {
+    padding: 24px 20px;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .floating-top-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+
+/* ============================================================
+   RESPONSIVE — NEW PAGES
+   ============================================================ */
+@media (max-width: 900px) {
+  .home-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .home-cta-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    min-width: 0;
+    gap: 14px;
+  }
+
+  .home-cta-actions .btn {
+    flex: 1;
+    min-width: 220px;
+    padding: 18px 28px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .home-cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .home-cta-actions .btn {
+    width: 100%;
+    min-width: 0;
+    padding: 18px 20px;
+    font-size: 0.98rem;
+  }
+
+  .projects-filters {
+    gap: 6px;
+    border-radius: 16px;
+  }
+
+  .filter-btn {
+    padding: 8px 14px;
+    font-size: 0.74rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pgm-content {
+    max-height: 96vh;
+    border-radius: 14px;
+  }
+
+  .pgm-header {
+    padding: 14px 16px;
+  }
+
+  .pgm-body {
+    padding: 14px 16px;
+  }
+
+  .pgm-footer {
+    padding: 14px 16px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pgm-cta-btn {
+    justify-content: center;
+    width: 100%;
+  }
+}
