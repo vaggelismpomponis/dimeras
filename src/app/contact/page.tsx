@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Contact from "@/components/Contact";
+import ContactPage from "@/components/ContactPage";
 
 export const metadata: Metadata = {
   title: "Επικοινωνία | DN GROUP — Κατασκευαστική Εταιρεία Λάρισα",
@@ -11,9 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function EpikoinoniaPage() {
-  return (
-    <main>
-      <Contact standalone />
-    </main>
-  );
+  return <ContactPage />;
 }
