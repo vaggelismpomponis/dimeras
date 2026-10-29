@@ -103,30 +103,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Trust strip */}
-          <div className="cp-trust">
-            <div className="cp-trust-item">
-              <span className="cp-trust-mark" aria-hidden="true">✓</span>
-              <div>
-                <strong>Δωρεάν αυτοψία</strong>
-                <small>Επιτόπια εκτίμηση στο χώρο σας</small>
-              </div>
-            </div>
-            <div className="cp-trust-item">
-              <span className="cp-trust-mark" aria-hidden="true">✓</span>
-              <div>
-                <strong>Γραπτή προσφορά</strong>
-                <small>Αναλυτικός προϋπολογισμός &amp; χρονοδιάγραμμα</small>
-              </div>
-            </div>
-            <div className="cp-trust-item">
-              <span className="cp-trust-mark" aria-hidden="true">✓</span>
-              <div>
-                <strong>Άμεση ανταπόκριση</strong>
-                <small>Επικοινωνία εντός 24 ωρών</small>
-              </div>
-            </div>
-          </div>
+
         </aside>
       </div>
 
@@ -134,7 +111,7 @@ export default function ContactPage() {
       <div className={`cp-map-row ${r("3")}`}>
         <div className="cp-map-label">
           <LocationIcon />
-          <span>Τοποθεσία και Έδρα — Λάρισα</span>
+          <span>Τοποθεσία και έδρα — Λάρισα</span>
           <a
             className="cp-map-link"
             href="https://maps.google.com/?q=Στρατηγού+Φράγκου+26-30,+Λάρισα"
@@ -160,3 +137,4 @@ export default function ContactPage() {
     </main>
   );
 }
+
