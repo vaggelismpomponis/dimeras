@@ -25,8 +25,8 @@ export default function Hero() {
         <p className="hero-kicker">DN GROUP · Δημερά&nbsp;Ε.Ε.</p>
 
         <h1 className="hero-title">
-          Ριζικές Ανακαινίσεις
-          <em>και Ολοκληρωμένα Έργα.</em>
+          Ριζικές ανακαινίσεις
+          <em>και ολοκληρωμένα έργα.</em>
         </h1>
 
         <p className="hero-copy">
