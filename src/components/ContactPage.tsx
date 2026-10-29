@@ -37,7 +37,6 @@ export default function ContactPage() {
 
       {/* ── HERO HEADING BLOCK ───────────────────────────────── */}
       <div className={`cp-hero-block ${r()}`}>
-        <p className="cp-eyebrow">ΕΠΙΚΟΙΝΩΝΙΑ</p>
         <h1 className="cp-title">
           Έχετε ένα έργο
           <em>στο μυαλό σας;</em>
