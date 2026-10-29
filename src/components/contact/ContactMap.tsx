@@ -6,7 +6,7 @@ export default function ContactMap() {
       <div className="contact-map-header">
         <div className="contact-map-title">
           <LocationIcon />
-          <span>Τοποθεσία και Έδρα — Λάρισα</span>
+          <span>Τοποθεσία και έδρα — Λάρισα</span>
         </div>
       </div>
       <div className="contact-map-frame">
