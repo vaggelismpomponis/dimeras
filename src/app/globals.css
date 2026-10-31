@@ -17,3 +17,26 @@
 @import "../styles/contact.css";
 @import "../styles/footer.css";
 @import "../styles/responsive.css";
+
+
+/* ── Global Overrides: Before / After UI (No Red / Green) ── */
+.pgm-photo-badge--after {
+  background: rgba(14, 20, 28, 0.92) !important;
+  color: #e2c97d !important;
+  border: 1px solid rgba(201, 168, 78, 0.5) !important;
+}
+
+.pgm-photo-badge--before {
+  background: rgba(14, 20, 28, 0.92) !important;
+  color: #e2e8f0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.pgm-thumb-dot--after {
+  background: #c9a84e !important;
+}
+
+.pgm-thumb-dot--before {
+  background: #94a3b8 !important;
+}
+/* Updated project categories */

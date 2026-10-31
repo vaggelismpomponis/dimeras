@@ -39,7 +39,38 @@ export default function GalleryPhotoViewer({
         />
 
         {/* Badge: Πριν / Μετά */}
-        <span className={`pgm-photo-badge pgm-photo-badge--${currentPhoto.type}`}>
+        <span
+          className={`pgm-photo-badge pgm-photo-badge--${currentPhoto.type}`}
+          style={
+            currentPhoto.type === "after"
+              ? {
+                  background: "rgba(14, 20, 28, 0.92)",
+                  color: "#e2c97d",
+                  border: "1px solid rgba(201, 168, 78, 0.5)",
+                }
+              : {
+                  background: "rgba(14, 20, 28, 0.92)",
+                  color: "#e2e8f0",
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
+                }
+          }
+        >
+          <span
+            className={`pgm-photo-badge-dot pgm-photo-badge-dot--${currentPhoto.type}`}
+            style={{
+              width: 6,
+              height: 6,
+              borderRadius: "50%",
+              display: "inline-block",
+              marginRight: 6,
+              background: currentPhoto.type === "after" ? "#c9a84e" : "#94a3b8",
+              boxShadow:
+                currentPhoto.type === "after"
+                  ? "0 0 8px rgba(201, 168, 78, 0.6)"
+                  : "0 0 6px rgba(148, 163, 184, 0.5)",
+            }}
+            aria-hidden="true"
+          />
           {currentPhoto.type === "after" ? "ΜΕΤΑ • ΟΛΟΚΛΗΡΩΣΗ" : "ΠΡΙΝ • ΑΡΧΙΚΗ ΚΑΤΑΣΤΑΣΗ"}
         </span>
 

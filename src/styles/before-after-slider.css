@@ -100,59 +100,151 @@
 
 .ba-badge-wrap {
   position: absolute;
-  z-index: 5;
-  pointer-events: none;
+  z-index: 7;
 }
 
 .ba-badge-wrap-topleft {
-  top: 14px;
-  left: 14px;
+  top: 12px;
+  left: 12px;
 }
 
 .ba-badge-wrap-before {
-  top: 14px;
-  left: 14px;
+  top: 12px;
+  left: 12px;
 }
 
 .ba-badge-wrap-after {
-  top: 14px;
-  right: 14px;
+  top: 12px;
+  right: 12px;
 }
 
-.ba-badge-split-wrap {
+/* Unified Segmented Pill (Slider mode) */
+.ba-badge-segmented {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 2px;
+  background: rgba(9, 13, 18, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.ba-badge-seg {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-}
-
-.ba-badge-split-sep {
-  font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.4);
-  font-weight: 700;
-}
-
-.ba-badge {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 0.65rem;
+  padding: 5px 10px;
+  background: transparent;
+  border: none;
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s var(--ease);
 }
 
+.ba-badge-seg--before {
+  color: #cbd5e1;
+}
+
+.ba-badge-seg--before:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.ba-badge-seg--after {
+  color: var(--gold-light, #e2c97d);
+}
+
+.ba-badge-seg--after:hover {
+  background: rgba(201, 168, 78, 0.15);
+  color: #ffffff;
+}
+
+.ba-badge-divider {
+  width: 1px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 0 2px;
+}
+
+/* Single Active Badges (When locked in Before or After mode) */
+.ba-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 6px;
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+}
+
+.ba-badge--before,
 .ba-badge-before {
-  background: rgba(195, 50, 30, 0.88);
-  color: #ffffff;
+  background: rgba(14, 20, 28, 0.9);
+  color: #e2e8f0;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.ba-badge--before:hover {
+  background: rgba(22, 32, 45, 0.98);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.ba-badge--after,
 .ba-badge-after-badge {
-  background: rgba(18, 120, 65, 0.88);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(18, 22, 28, 0.92);
+  color: var(--gold-light, #e2c97d);
+  border: 1px solid rgba(201, 168, 78, 0.45);
+}
+
+.ba-badge--after:hover {
+  background: rgba(24, 28, 36, 0.98);
+  border-color: var(--gold);
+}
+
+.ba-badge-reset-hint {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  margin-left: 2px;
+  transition: transform 0.25s var(--ease);
+}
+
+.ba-badge:hover .ba-badge-reset-hint {
+  transform: rotate(90deg);
+  opacity: 1;
+}
+
+/* Dots */
+.ba-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.ba-badge-dot--before {
+  background: #94a3b8;
+  box-shadow: 0 0 6px rgba(148, 163, 184, 0.6);
+}
+
+.ba-badge-dot--after {
+  background: var(--gold, #c9a84e);
+  box-shadow: 0 0 8px rgba(201, 168, 78, 0.7);
 }
 
 .ba-quick-pills {
@@ -161,25 +253,26 @@
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 4px;
+  gap: 3px;
   padding: 3px;
-  background: rgba(10, 15, 22, 0.85);
+  background: rgba(9, 13, 18, 0.88);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 100px;
+  border-radius: 6px;
   z-index: 8;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 .ba-pill {
   padding: 4px 11px;
   border: none;
   background: transparent;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
   font-family: var(--font-body), sans-serif;
   font-size: 0.68rem;
   font-weight: 600;
-  border-radius: 100px;
+  border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s var(--ease);
   white-space: nowrap;
@@ -194,7 +287,7 @@
   background: var(--gold);
   color: #0c1118;
   font-weight: 700;
-  box-shadow: 0 2px 8px rgba(201, 168, 78, 0.4);
+  box-shadow: 0 1px 6px rgba(201, 168, 78, 0.4);
 }
 
 .ba-expand-btn {

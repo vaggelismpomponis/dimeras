@@ -20,6 +20,22 @@ const categoryIcons: Record<string, React.ReactNode> = {
       <path d="M18 22h2v2h-2zM28 22h2v2h-2z" />
     </svg>
   ),
+  "Ανακαινίσεις Κατοικιών": (
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M8 42V20l16-12 16 12v22H8z" />
+      <path d="M20 42V32h8v10" />
+      <path d="M32 8h6v8" />
+      <circle cx="24" cy="24" r="3" />
+    </svg>
+  ),
+  "Ανακαινίσεις Επενδυτικών Ακινήτων": (
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M6 42h36" />
+      <path d="M10 42V14h16v28" />
+      <path d="M26 22h12v20" />
+      <path d="M16 20h4v4h-4zM16 28h4v4h-4zM30 28h4v4h-4z" />
+    </svg>
+  ),
   "Ανακαινίσεις": (
     <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M8 42V20l16-12 16 12v22H8z" />

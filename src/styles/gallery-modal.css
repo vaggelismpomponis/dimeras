@@ -109,7 +109,7 @@
 
 .pgm-tab {
   padding: 6px 16px;
-  border-radius: 100px;
+  border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: transparent;
   color: var(--text-secondary);
@@ -186,14 +186,14 @@
 }
 
 .pgm-photo-badge--after {
-  background: rgba(18, 120, 65, 0.9);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(18, 22, 28, 0.92);
+  color: var(--gold-light, #e2c97d);
+  border: 1px solid rgba(201, 168, 78, 0.45);
 }
 
 .pgm-photo-badge--before {
-  background: rgba(195, 50, 30, 0.9);
-  color: #ffffff;
+  background: rgba(14, 20, 28, 0.9);
+  color: #e2e8f0;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -306,8 +306,8 @@
   border-radius: 50%;
 }
 
-.pgm-thumb-dot--after { background: #22c55e; }
-.pgm-thumb-dot--before { background: #ef4444; }
+.pgm-thumb-dot--after { background: var(--gold); }
+.pgm-thumb-dot--before { background: #94a3b8; }
 
 .pgm-empty {
   text-align: center;

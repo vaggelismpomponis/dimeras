@@ -12,10 +12,16 @@ export interface BeforeAfterPair {
   afterLabel?: string;
 }
 
+export type ProjectCategoryName =
+  | "Ανακαινίσεις Κατοικιών"
+  | "Ανακαινίσεις Επενδυτικών Ακινήτων"
+  | "Νέες Κατασκευές"
+  | "Τεχνικά Έργα";
+
 export interface Project {
   id: number;
   slug: string;
-  category: "Ανακαινίσεις" | "Νέες Κατασκευές" | "Τεχνικά Έργα";
+  category: ProjectCategoryName;
   title: string;
   subtitle: string;
   location: string;
@@ -33,9 +39,9 @@ export interface Project {
 export const projectCategories = [
   "Όλα",
   "Πριν & Μετά",
-  "Ανακαινίσεις",
+  "Ανακαινίσεις Κατοικιών",
+  "Ανακαινίσεις Επενδυτικών Ακινήτων",
   "Νέες Κατασκευές",
-  "Τεχνικά Έργα",
 ] as const;
 
 export type ProjectCategory = (typeof projectCategories)[number];
@@ -53,7 +59,7 @@ export const projectsData: Project[] = [
   {
     id: 1,
     slug: "deca-urban-living-asklipiou",
-    category: "Ανακαινίσεις",
+    category: "Ανακαινίσεις Επενδυτικών Ακινήτων",
     title: "Deca Urban Living",
     subtitle: "Ριζική Ανακαίνιση & Ανακατασκευή Κτιρίου σε Boutique Μονάδα 4 Κλειδιών",
     location: "Ασκληπιού 32, Κέντρο Λάρισας",
@@ -119,7 +125,7 @@ export const projectsData: Project[] = [
   {
     id: 2,
     slug: "ipeirou-apartment-renovation",
-    category: "Ανακαινίσεις",
+    category: "Ανακαινίσεις Κατοικιών",
     title: "Ολική Ανακαίνιση Διαμερίσματος",
     subtitle: "Ριζική Ανακατασκευή, Νέες Εγκαταστάσεις & Ενεργειακή Αναβάθμιση",
     location: "Οδός Ηπείρου, Λάρισα",
@@ -151,18 +157,6 @@ export const projectsData: Project[] = [
         desc: "Η αρχική κατάσταση της κουζίνας με παλαιά κεραμικά πλακάκια, αποξηλωμένες σωληνώσεις και φθορές.",
       },
       {
-        src: "/images/projects/ipeirou-apartment/after-kitchen-wide.jpg",
-        type: "after",
-        title: "Ευρυγώνια Άποψη Κουζίνας & Δαπέδου",
-        desc: "Συνδυασμός νέων επίπλων κουζίνας με γυαλιστερό δάπεδο όψης φυσικού ξύλου.",
-      },
-      {
-        src: "/images/projects/ipeirou-apartment/after-kitchen-detail.jpg",
-        type: "after",
-        title: "Λεπτομέρεια Ντουλαπιών & Μηχανισμών",
-        desc: "Υψηλής ποιότητας μηχανισμοί soft-close και ενσωματωμένος απορροφητήρας.",
-      },
-      {
         src: "/images/projects/ipeirou-apartment/after-bathroom-full.jpg",
         type: "after",
         title: "Ολοκληρωμένο Νέο Μπάνιο (Μετά)",
@@ -173,12 +167,6 @@ export const projectsData: Project[] = [
         type: "after",
         title: "Walk-in Ντουζιέρα με Κρύσταλλο Ασφαλείας",
         desc: "Ελεύθερη είσοδος ντουζιέρας με διάφανο κρύσταλλο, εντοιχιζόμενη μπαταρία και ανοξείδωτο ράφι.",
-      },
-      {
-        src: "/images/projects/ipeirou-apartment/after-bathroom-vanity.jpg",
-        type: "after",
-        title: "Έπιπλο Νιπτήρα & Ντουλάπι Καθρέπτη",
-        desc: "Κρεμαστό ξύλινο έπιπλο με κεραμικό νιπτήρα και αποθηκευτικό καθρέπτη με φωτισμό.",
       },
       {
         src: "/images/projects/ipeirou-apartment/after-bathroom-detail.jpg",
@@ -229,118 +217,90 @@ export const projectsData: Project[] = [
         desc: "Τρίφυλλη ντουλάπα πλήρους ύψους οροφής με πατάρια και ανοξείδωτες λαβές σε φυσικό χρώμα ξύλου.",
       },
       {
-        src: "/images/projects/ipeirou-apartment/after-wardrobe-room.jpg",
-        type: "after",
-        title: "Υπνοδωμάτιο & Εσωτερική Πόρτα (Μετά)",
-        desc: "Πλήρως ανακαινισμένο δωμάτιο με νέα εσωτερική πόρτα, ενιαίο δάπεδο και σοβατεπί.",
-      },
-      {
-        src: "/images/projects/ipeirou-apartment/after-security-door.jpg",
-        type: "after",
-        title: "Θωρακισμένη Πόρτα Ασφαλείας Εισόδου (Μετά)",
-        desc: "Νέα πόρτα ασφαλείας με ξύλινη επένδυση, περιμετρικά κλειδώματα και satin chrome αξεσουάρ.",
-      },
-      {
-        src: "/images/projects/ipeirou-apartment/after-entrance-hall.jpg",
-        type: "after",
-        title: "Χώρος Υποδοχής & Εισόδου (Μετά)",
-        desc: "Φωτεινός διάδρομος εισόδου με σπατουλαριστούς τοίχους και νέο ηλεκτρολογικό πίνακα.",
-      },
-      {
-        src: "/images/projects/ipeirou-apartment/after-entrance-view.jpg",
-        type: "after",
-        title: "Άποψη από το Χολ προς το Εσωτερικό",
-        desc: "Αρμονική ροή χώρων με ομοιόμορφο φωτισμό και ποιοτικά υλικά φινιρίσματος.",
-      },
-      {
-        src: "/images/projects/ipeirou-apartment/after-corridor.jpg",
-        type: "after",
-        title: "Κεντρικός Διάδρομος Κατοικίας",
-        desc: "Νέες πόρτες δωματίων και ενιαία επίστρωση δαπέδου χωρίς ανισοσταθμίες.",
-      },
-      {
         src: "/images/projects/ipeirou-apartment/after-interior-doors.jpg",
         type: "after",
         title: "Νέες Εσωτερικές Θύρες",
         desc: "Μοντέρνες laminate πόρτες με μαγνητικές κλειδαριές και ηχομονωτικά λάστιχα.",
       },
-      {
-        src: "/images/projects/ipeirou-apartment/after-room-angle.jpg",
-        type: "after",
-        title: "Γωνιακή Λεπτομέρεια Δωματίου",
-        desc: "Καθαρές γεωμετρικές γραμμές, άψογη βαφή και ποιοτικό σοβατεπί.",
-      },
-      {
-        src: "/images/projects/ipeirou-apartment/after-living-area.jpg",
-        type: "after",
-        title: "Ανακαινισμένος Χώρος Διημέρευσης",
-        desc: "Φωτεινό και λειτουργικό διαμέρισμα έτοιμο προς κατοίκηση.",
-      },
     ],
   },
   {
     id: 3,
-    slug: "neodmiti-katoikia-larissa",
+    slug: "neodmiti-katoikia-falani-larissa",
     category: "Νέες Κατασκευές",
-    title: "Νεόδμητη Μονοκατοικία",
-    subtitle: "Ολοκληρωμένη Κατασκευή από τα Θεμέλια έως το Κλειδί",
-    location: "Λάρισα",
-    year: "2023",
-    scope: "Στατική μελέτη, εκσκαφές, σκυροδέτηση, θερμοπρόσοψη, εσωτερικές διαρρυθμίσεις & περιβάλλων χώρος.",
+    title: "Νεόδμητη Κατοικία στη Φαλάνη",
+    subtitle: "Ανέγερση από τα Θεμέλια • Φέρων Οργανισμός, Τοιχοποιίες & Επιχρίσματα",
+    location: "Φαλάνη, Λάρισα",
+    year: "2024",
+    scope: "Εκσκαφές, οπλισμοί θεμελίωσης, σκυροδέτηση τοιχίων & φέροντος οργανισμού, τοιχοποιίες, υγρομονώσεις & επιχρίσματα.",
     description:
-      "Ολοκληρωμένη κατασκευή διώροφης σύγχρονης κατοικίας υψηλής ενεργειακής κλάσης Α+. Πλήρης διαχείριση και συντονισμός όλων των σταδίων: από τη θεμελίωση, τον φέροντα οργανισμό οπλισμένου σκυροδέματος, την εξωτερική θερμοπρόσοψη και τα ενεργειακά συστήματα, μέχρι τις τελικές επενδύσεις και τη διαμόρφωση του αύλειου χώρου.",
-    hasBeforeAfter: false,
+      "Ολοκληρωμένη ανέγερση σύγχρονης κατοικίας στη Φαλάνη Λάρισας από την DN GROUP. Πλήρης διαχείριση και συντονισμός όλων των κατασκευαστικών σταδίων: από τη χάραξη, την εκσκαφή του σκάμματος και την τοποθέτηση των χαλύβδινων οπλισμών θεμελίωσης, τη σκυροδέτηση των περιμετρικών τοιχίων, μέχρι την κατασκευή του φέροντος οργανισμού οπλισμένου σκυροδέματος, τις περιμετρικές οπτοπλινθοδομές, τη στεγανοποίηση στάθμης εδάφους και τα εσωτερικά επιχρίσματα.",
+    hasBeforeAfter: true,
     featured: false,
-    tags: ["Νέα Κατασκευή", "Ενεργειακή Κλάση Α+", "Μονοκατοικία", "Οπλισμένο Σκυρόδεμα", "Λάρισα"],
-    gallery: [],
-  },
-  {
-    id: 4,
-    slug: "polykatoikia-larissa",
-    category: "Νέες Κατασκευές",
-    title: "Πολυκατοικία 8 Διαμερισμάτων",
-    subtitle: "Ανέγερση Πολυώροφου Κτιρίου Κατοικιών",
-    location: "Λάρισα",
-    year: "2022",
-    scope: "Κατασκευή φέροντος οργανισμού, τοιχοποιίες, ηλεκτρομηχανολογικές υποδομές, ανελκυστήρας & κοινόχρηστοι χώροι.",
-    description:
-      "Ανέγερση σύγχρονης πολυκατοικίας 8 ανεξάρτητων διαμερισμάτων με υπόγειο χώρο στάθμευσης και αποθήκες. Αυστηρή τήρηση του χρονοδιαγράμματος, πιστοποιημένα υλικά υψηλής αντοχής και πλήρης επίβλεψη από την ομάδα της DN GROUP.",
-    hasBeforeAfter: false,
-    featured: false,
-    tags: ["Πολυκατοικία", "Νέα Κτίρια", "Στατική Επάρκεια", "Θεσσαλία"],
-    gallery: [],
-  },
-  {
-    id: 5,
-    slug: "anakainisi-sxolikis-monadas",
-    category: "Τεχνικά Έργα",
-    title: "Ανακαίνιση Σχολικής Μονάδας",
-    subtitle: "Συμμετοχή στο Πρόγραμμα «Μαριέττα Γιαννάκου»",
-    location: "Λάρισα",
-    year: "2023",
-    scope: "Ενεργειακή & κτιριακή αναβάθμιση σχολικών αιθουσών, υγρομονώσεις δωμάτων, ανακαίνιση χώρων υγιεινής & αύλειων χώρων.",
-    description:
-      "Εκτέλεση εργασιών συντήρησης και αποκατάστασης σχολικών υποδομών στο πλαίσιο του προγράμματος «Μαριέττα Γιαννάκου». Επισκευές μονώσεων, χρωματισμοί, ανακατασκευή WC και βελτίωση προσβασιμότητας για ασφαλές και σύγχρονο εκπαιδευτικό περιβάλλον.",
-    hasBeforeAfter: false,
-    featured: false,
-    tags: ["Δημόσια Έργα", "Σχολικά Κτίρια", "Μαριέττα Γιαννάκου", "Μονώσεις", "Λάρισα"],
-    gallery: [],
-  },
-  {
-    id: 6,
-    slug: "apokatastasi-dimosiou-ktiriou",
-    category: "Τεχνικά Έργα",
-    title: "Αποκατάσταση Δημόσιου Κτιρίου",
-    subtitle: "Επισκευές, Ενισχύσεις & Στεγανοποιήσεις",
-    location: "Θεσσαλία",
-    year: "2022",
-    scope: "Δομικές αποκαταστάσεις, στεγανοποιήσεις, εξωτερικοί χρωματισμοί και αντικατάσταση τεχνικών στοιχείων.",
-    description:
-      "Εκτεταμένες τεχνικές επισκευές και αποκατάσταση κτιριακού συγκροτήματος στη Θεσσαλία. Ειδικές εργασίες επισκευής σκυροδέματος, στεγανοποίησης δωμάτων και πλήρους ανακαίνισης όψεων με υλικά υψηλής αντοχής σε καιρικές συνθήκες.",
-    hasBeforeAfter: false,
-    featured: false,
-    tags: ["Τεχνικά Έργα", "Αποκαταστάσεις", "Επισκευές Σκυροδέματος", "Θεσσαλία"],
-    gallery: [],
+    beforeAfter: {
+      before: "/images/projects/falani-residence/before-foundation-concrete-walls.jpg",
+      after: "/images/projects/falani-residence/after-brickwork-facade.jpg",
+      beforeLabel: "ΠΡΙΝ • Θεμελίωση & Τοιχία",
+      afterLabel: "ΜΕΤΑ • Φέρων Οργανισμός & Τοιχοποιία",
+    },
+    image: "/images/projects/falani-residence/after-brickwork-facade.jpg",
+    tags: ["Νέα Κατασκευή", "Μονοκατοικία", "Οπλισμένο Σκυρόδεμα", "Τοιχοποιίες", "Υγρομονώσεις", "Φαλάνη", "Λάρισα"],
+    gallery: [
+      {
+        src: "/images/projects/falani-residence/after-brickwork-facade.jpg",
+        type: "after",
+        title: "Ολοκλήρωση Σκελετού & Τοιχοποιίας (Μετά)",
+        desc: "Φέρων οργανισμός οπλισμένου σκυροδέματος, οπτοπλινθοδομές ακριβείας και υγρομόνωση στάθμης εδάφους.",
+      },
+      {
+        src: "/images/projects/falani-residence/before-foundation-concrete-walls.jpg",
+        type: "before",
+        title: "Σκυροδέτηση Τοιχίων Θεμελίωσης (Πριν)",
+        desc: "Ολοκλήρωση έγχυσης σκυροδέματος περιμετρικών τοιχίων βάσης και αναμονές υποστυλωμάτων.",
+      },
+      {
+        src: "/images/projects/falani-residence/after-brickwork-waterproofing.jpg",
+        type: "after",
+        title: "Περιμετρική Όψη & Στεγανοποίηση Βάσης (Μετά)",
+        desc: "Τοποθέτηση προστατευτικής μεμβράνης αποστράγγισης (αυγοθήκη) και μόνωση θεμελίων.",
+      },
+      {
+        src: "/images/projects/falani-residence/before-foundation-excavation.jpg",
+        type: "before",
+        title: "Εκσκαφή & Οπλισμοί Θεμελίωσης (Πριν)",
+        desc: "Διαμόρφωση σκάμματος θεμελίωσης και τοποθέτηση πλεγμάτων και κλωβών σιδηροπλισμού.",
+      },
+      {
+        src: "/images/projects/falani-residence/after-interior-plastering-room.jpg",
+        type: "after",
+        title: "Εσωτερικά Επιχρίσματα Χώρων (Μετά)",
+        desc: "Εφαρμογή σοβάδων σε τοιχοποιίες και οροφές, ανοίγματα κουφωμάτων και καθαρισμός χώρου.",
+      },
+      {
+        src: "/images/projects/falani-residence/before-foundation-steel-cage.jpg",
+        type: "before",
+        title: "Πλέγμα Σιδηροπλισμού & Υποστυλώματα (Πριν)",
+        desc: "Πλήρης δικτύωση οπλισμού κοιτόστρωσης και τοποθέτηση συνδετήρων υποστυλωμάτων.",
+      },
+      {
+        src: "/images/projects/falani-residence/after-interior-plastering-corridor.jpg",
+        type: "after",
+        title: "Διάδρομος & Ηλεκτρολογικές Εγκαταστάσεις (Μετά)",
+        desc: "Διαμορφωμένος εσωτερικός διάδρομος με κανάλια καλωδιώσεων, υαλοπλέγματα ενίσχυσης και επιχρίσματα.",
+      },
+      {
+        src: "/images/projects/falani-residence/before-foundation-wide.jpg",
+        type: "before",
+        title: "Γενική Άποψη Έργου Θεμελίωσης (Πριν)",
+        desc: "Άποψη του οικοπέδου στη Φαλάνη κατά τη φάση τοποθέτησης των χαλύβδινων οπλισμών.",
+      },
+      {
+        src: "/images/projects/falani-residence/before-foundation-rebar-detail.jpg",
+        type: "before",
+        title: "Λεπτομέρεια Οπλισμών Πεδιλοδοκών (Πριν)",
+        desc: "Αυστηρή τήρηση κατασκευαστικών αποστάσεων επικάλυψης και ενισχύσεις κόμβων.",
+      },
+    ],
   },
 ];
 
