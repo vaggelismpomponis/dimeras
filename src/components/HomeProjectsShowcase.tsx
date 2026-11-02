@@ -69,17 +69,24 @@ export default function HomeProjectsShowcase() {
                     onOpenGallery={() => setSelectedProject(project)}
                   />
                 )}
-                <div className="hps-card-badge">
-                  {project.category} • {project.location}
-                </div>
               </div>
 
               <div className="hps-card-body">
                 <div className="hps-card-meta">
-                  <span className="hps-year">{project.year}</span>
-                  <span className="hps-photo-count">
-                    {project.gallery.length} Φωτογραφίες
-                  </span>
+                  <span className="hps-category-badge">{project.category}</span>
+                  <div className="hps-card-meta-right">
+                    <span className="hps-location">
+                      <svg width="12" height="12" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+                        <path d="M10 18s-6-5.69-6-9.5A6 6 0 0116 8.5C16 12.31 10 18 10 18z" />
+                        <circle cx="10" cy="8.5" r="2" />
+                      </svg>
+                      {project.location}
+                    </span>
+                    <span className="hps-year">{project.year}</span>
+                    <span className="hps-photo-count">
+                      {project.gallery.length} Φωτογραφίες
+                    </span>
+                  </div>
                 </div>
 
                 <h3 className="hps-card-title">{project.title}</h3>

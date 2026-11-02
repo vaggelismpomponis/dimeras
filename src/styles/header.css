@@ -25,7 +25,8 @@
 }
 
 .site-header.scrolled {
-  background: rgba(9, 13, 18, 0.75);
+  background: rgba(9, 13, 18, 0.95);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(24px) saturate(1.2);
   -webkit-backdrop-filter: blur(24px) saturate(1.2);
   border-bottom-color: var(--border);

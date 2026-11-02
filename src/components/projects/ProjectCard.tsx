@@ -108,31 +108,22 @@ export default function ProjectCard({
           </div>
         )}
 
-        {!hasBA && <div className="project-card-category">{project.category}</div>}
-
-        {hasBA && (
-          <button
-            type="button"
-            className="project-card-ba-pill"
-            onClick={() => onOpenGallery(project, "gallery")}
-            title="Προβολή όλων των φωτογραφιών"
-          >
-            {project.gallery.length} Φωτογραφίες (Πριν &amp; Μετά)
-          </button>
-        )}
       </div>
 
       {/* Content */}
       <div className="project-card-body">
         <div className="project-card-meta">
-          <span className="project-card-location">
-            <svg width="12" height="12" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M10 18s-6-5.69-6-9.5A6 6 0 0116 8.5C16 12.31 10 18 10 18z" />
-              <circle cx="10" cy="8.5" r="2" />
-            </svg>
-            {project.location}
-          </span>
-          <span className="project-card-year">{project.year}</span>
+          <span className="project-card-category-badge">{project.category}</span>
+          <div className="project-card-meta-right">
+            <span className="project-card-location">
+              <svg width="12" height="12" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+                <path d="M10 18s-6-5.69-6-9.5A6 6 0 0116 8.5C16 12.31 10 18 10 18z" />
+                <circle cx="10" cy="8.5" r="2" />
+              </svg>
+              {project.location}
+            </span>
+            <span className="project-card-year">{project.year}</span>
+          </div>
         </div>
 
         <h3 className="project-card-title">{project.title}</h3>
